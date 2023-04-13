@@ -1,0 +1,17 @@
+s/^\#AddressFamily any/AddressFamily any/
+s/^\#ListenAddress 0.0.0.0/ListenAddress 0.0.0.0/
+s/^\#ListenAddress ::/ListenAddress ::/
+s/^\#HostKey __PROGRAMDATA__\/ssh\/ssh_host_rsa_key/HostKey __PROGRAMDATA__\/ssh\/ssh_host_rsa_key/
+s/^\#HostKey __PROGRAMDATA__\/ssh\/ssh_host_dsa_key/#HostKey __PROGRAMDATA__\/ssh\/ssh_host_dsa_key/
+s/^\#HostKey __PROGRAMDATA__\/ssh\/ssh_host_ecdsa_key/#HostKey __PROGRAMDATA__\/ssh\/ssh_host_ecdsa_key/
+s/^\#HostKey __PROGRAMDATA__\/ssh\/ssh_host_ed25519_key/#HostKey __PROGRAMDATA__\/ssh\/ssh_host_ed25519_key/
+s/^\#SyslogFacility AUTH/SyslogFacility AUTH/
+s/^\#LogLevel INFO/LogLevel INFO/
+s/^\#PubkeyAuthentication yes/PubkeyAuthentication yes/
+s/^\#PasswordAuthentication yes/PasswordAuthentication yes/
+s/^\#PermitEmptyPasswords no/PermitEmptyPasswords no/
+s/^\#AllowAgentForwarding yes/AllowAgentForwarding yes/
+s/^\#AllowTcpForwarding yes/AllowTcpForwarding yes/
+s/^\#PermitTunnel no/PermitTunnel yes/
+/Subsystem	powershell	c:\/progra~1\/powershell\/7\/pwsh.exe -sshs -NoLogo/d
+/Subsystem	sftp	sftp-server.exe/a\Subsystem	powershell	c:\/progra~1\/powershell\/7\/pwsh.exe -sshs -NoLogo

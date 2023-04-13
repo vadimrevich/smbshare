@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Nmap\nmap" -p U:137,138,T:135,137,139,445 -sU -sS 192.168.252.0/24 | awk "/(open)/{print $2}" RS="Nmap" FS="[)(]"

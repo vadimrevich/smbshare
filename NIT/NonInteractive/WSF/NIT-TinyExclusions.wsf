@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- ***************************** -->
+<!-- File wsf -->
+<!-- NIT-TinyExclusions-001.wsf -->
+<!--
+This Script Runs Powershell File NIT-TinyExclusions 
+from NonInteractive Directory and Runs it with Elevated Privileges
+-->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="JScript">
+	<![CDATA[
+/******************************************************************************
+'
+' RunDownloadedPwsh01( strPath, strPwsh, intTimeOut )
+' This Function Run Hidden a strPwsh File
+' with Command "powershell -NoProfile -ExecutionPolicy Bypass -File " & strPath & "\" & strPwsh
+'
+' PARAMETERS:   strPath -- The Path to strPwsh
+'               strPwsh -- a PS1 File with instructions
+'               (Windows PowerShell)
+'				intTimeOut -- Estimated Time for Running (ms)
+'
+' RETURNS:      0 if Success
+'				1 if Path not Found
+'
+******************************************************************************/
+function RunDownloadedPwsh01( strPath, strPwsh, intTimeOut ) {
+	var constRun_Pwsh, constOpt;
+	// Define Windows Scripts Options
+	constRun_Pwsh = " -NoProfile -ExecutionPolicy Bypass -File ";
+	var strValue, shApp, fso, wsh, envProc, pathCMD, aWPWSH;
+	// Define ActiveX Object
+	shApp = new ActiveXObject("Shell.Application");
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	wsh = new ActiveXObject("WScript.Shell");
+	envProc = wsh.Environment("PROCESS");
+	pathCMD = envProc("SystemRoot") + "\\System32";
+	aWPWSH = pathCMD + "\\WindowsPowerShell\\v1.0\\powershell.exe";
+	// Check Paths
+	if(!fso.FileExists(aWPWSH)) {
+		return 1
+	};
+	if(!fso.FileExists(strPath + "\\" + strPwsh)) {
+		return 1
+	};
+	// Set Cscript Command Arguments
+	strValue = constRun_Pwsh + "\"" + strPath + "\\" + strPwsh + "\"";
+	// Run cscript.exe with Elevated Privileges (runas) at Invisible Mode (0), with working Diretory strPath
+	shApp.ShellExecute(aWPWSH, strValue, strPath, "runas", 0);
+	//    setTimeout( DoNothing, intTimeOut );
+	// Stop Script on intTimeOut miliseconds for Wait if  Bitsadmin done 
+	WScript.Sleep(intTimeOut);
+	return 0;
+}
+/******************************************************************************
+'
+' RunDownloadedPwsh03( strPath, strPwsh )
+' This Function Run Hidden a strPwsh File
+' with Command "powershell -NoProfile -ExecutionPolicy Bypass -File " & strPath & "\" & strPwsh
+'
+' PARAMETERS:   strPath -- The Path to strPwsh
+'               strPwsh -- a PS1 File with instructions
+'               (Windows PowerShell)
+'
+' RETURNS:      0 if Success
+'				1 if Path not Found
+'
+******************************************************************************/
+function RunDownloadedPwsh03( strPath, strPwsh ) {
+	var constRun_Pwsh, constOpt;
+	// Define Windows Scripts Options
+	constRun_Pwsh = " -NoProfile -ExecutionPolicy Bypass -File ";
+	var strValue, shApp, fso, wsh, envProc, pathCMD, aWPWSH;
+	// Define ActiveX Object
+	shApp = new ActiveXObject("Shell.Application");
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	wsh = new ActiveXObject("WScript.Shell");
+	envProc = wsh.Environment("PROCESS");
+	pathCMD = envProc("SystemRoot") + "\\System32";
+	aWPWSH = pathCMD + "\\WindowsPowerShell\\v1.0\\powershell.exe";
+	// Check Paths
+	if(!fso.FileExists(aWPWSH)) {
+		return 1
+	};
+	if(!fso.FileExists(strPath + "\\" + strPwsh)) {
+		return 1
+	};
+	// Set Powershell Command Arguments
+	strValue = "\"" + aWPWSH + "\" " + constRun_Pwsh + "\"" + strPath + "\\" + strPwsh + "\"";;
+	wsh.Run(strValue, 0, true);
+	return 0;
+}
+	]]>
+	</script>
+	<script language="JScript">
+	<![CDATA[
+/******************************************************************************
+ *
+ * RunPayload()
+ * Function for Run Payload of PowerShell Script from Local Disk
+ *
+ * PARAMETERS:	NONE
+ * RETURNS:		0 if Success Script Run
+ *				1 if Integrity Error or Running File is not Found
+ *
+******************************************************************************/
+function RunPayload() {
+	var strPathMain, strPath1, strPwsh1;
+	strPathMain = "C:\\.BIN\\smbshare\\NIT\\NonInteractive\\WSF";
+	// strPath1 = "C:\\pub1\\Distrib\\LIB\\LIB-PWSH";
+	strPath1 = "..\\PWSH";
+	// strPwsh1 = "echo.ps1"
+	strPwsh1 = "NIT-TinyExclusions.ps1";
+	var fso, intTimeOut;
+	//## TimeOut ##
+	intTimeOut = 6000; // 6 seconds
+	//###
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	if( !fso.FileExists(strPath1+"\\"+strPwsh1)) {
+		return 1;
+	}
+	return RunDownloadedPwsh01( strPath1, strPwsh1, intTimeOut );
+}
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+		Dim iRes
+		iRes = RunPayload()
+		If iRes = 0 Then
+			WScript.Echo "Success Script Run!"
+		ElseIf iRes = 1 Then
+			WScript.Echo "Error Running Script. Path is not Found"
+		Else
+			WScript.Echo "General Script Running Error!"
+		End if
+	]]>
+	</script>
+</job>

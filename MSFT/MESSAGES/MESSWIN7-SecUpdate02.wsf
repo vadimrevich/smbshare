@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***************************** -->
+<!--File ws -->
+<!-- MESSWIN7-SecUpdate01.wsf -->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="VBScript">
+	<![CDATA[
+		Dim sMessage
+		sMessage = "ВНИМАНИЕ!!!" & vbCrLf
+		sMessage = sMessage & "ATTENTION!!!" & vbCrLf
+		sMessage = sMessage & vbCrLf
+		sMessage = sMessage & "Данный скрипт устанавливает Microsoft Security Update только на Windows 7/Server 2008r2." & vbCrLf
+		sMessage = sMessage & vbCrLf
+		sMessage = sMessage & "Для вашей операционной системы эти обновления не требуются." & vbCrLf
+		sMessage = sMessage & vbCrLf
+		sMessage = sMessage & "Перейдите к следующему пункту обновлений (VCRedist)." & vbCrLf
+		sMessage = sMessage & vbCrLf
+		WScript.Echo sMessage
+	]]>
+	</script>
+</job>

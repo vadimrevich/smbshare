@@ -1,0 +1,6 @@
+akelpad.cmd -- This Script Runs AkelPad Text Editor from Current Directory\nÂ
+npp.cmd -- This Script Runs Notepad++ Text Redactor from Current Directory\nÂ
+Set-ScriptAcl-003.ps1 -- Scripts' Acl Set\nÂ
+smbshare-mount.ps1 -- This Script Copy Windows Adjust Files and Shares a Folder with Copied Files\nÂ
+smbshare-unmount0.ps1 -- This Script Copy Windows Adjust Files and Shares a Folder with Copied Files\nÂ
+vscode.cmd -- This Script Runs a Microsoft VS Code Text Editor from Current Directory\nÂ

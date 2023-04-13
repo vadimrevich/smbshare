@@ -1,0 +1,7 @@
+dotNet -- Directory with dotNet Framework Files\nÂ
+SecUpdate -- Directory with some Security Updates for Installing .Net Framework\nMust be Run First\nÂ
+VCRedist -- Directory with Visual C++ Redistributable Packages for Installing .Net Framework\nIt must be Run Secondly\nÂ
+descript.ion -- Directory Description (This file)\nÂ
+install.dotNet.bat -- This Script Install .Net Framework 4.6.2 and 4.8 and Restart Computer\nÂ
+install.secupdate.bat -- This Script Install some Security Updates (if Necessary) on a Computer and Restart it\nÂ
+install.vcredist.bat -- This Script Installs all the Visual C++ Redistributable Packages and Restart a Computer\nÂ

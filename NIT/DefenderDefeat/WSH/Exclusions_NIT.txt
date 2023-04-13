@@ -1,0 +1,77 @@
+﻿Безопасность NIT
+Добавление экосистемы компании New Internet Technologies Inc. в исключения антивируса
+
+Условные обозначения
+
+- %User% — текущий пользователь компьютера, который устанавливает ПО New Internet Technology. Например: Vagrant
+- %UserProfile% —  папка с профилем текущего пользователя. Обычно: C:\Users\%User%
+- MSSQLSR — служебная учётная запись New Internet Technologies Inc. Невидимая, суперпривилегированная. 
+
+Файловые исключения
+
+Добавление исключений антивируса на определённые папки
+
+Для программ KMS
+> %UserProfile%\Downloads\KMS.Tools
+> C:\Windows\AAct_Tools
+> C:\Windows\Aact_Tools\AAct_files
+> C:\Windows\KMS
+> C:\Windows\KMSAutoS
+> C:\Windows\System32\SppExtComObjHook.dll
+> C:\Windows\System32\SppExtComObjPatcher.exe
+
+Текст можно вставлять в строку редактирования антивируса копипастингом (т.е. Выделить текст отсюда, нажать Ctrl+C, подвести курсор на строку редактирования антивируса, нажать Ctrl+V, продолжить
+
+Для программ NIT (все архитектуры ОС)
+
+> C:\.BIN
+> C:\Elevation
+> C:\inetpub
+> C:\NIT.SYSUPDATE
+> C:\Program Files\AutoIt3
+> C:\Program Files\PowerShell
+> C:\Program Files\WindowsPowerShell
+> C:\ProgramData\NIT
+> C:\pub
+> C:\pub1
+> C:\Python27.x64
+> C:\Python27.x86
+> C:\Python38.x64
+> C:\Python38.x86
+> C:\Users\MSSQLSR
+> %UserProfile%\Documents\PowerShell
+> %UserProfile%\Documents\WindowsPowerShell
+> C:\Util
+> C:\Windows\System32\rserver30
+> C:\Windows\System32\WindowsPowerShell
+
+Для программ NIT дополнительно (архитектура amd64)
+
+> C:\Program Files (x86)\7z SFX Tools
+> C:\Program Files (x86)\AutoIt3
+> C:\Program Files (x86)\PowerShell
+> C:\Program Files (x86)\WindowsPowerShell
+> C:\Windows\sysWOW64\rserver30
+> C:\Windows\sysWOW64\WindowsPowerShell
+
+Исключения на процессы
+Исключения антивируса на исполняемые процессы
+
+Процессы, добавляемые в исключения (для всех архитектур)
+* C:\Util\areslag1234.exe
+* C:\Util\aresrag1234.exe
+* C:\Util\defrevl1234.exe
+* C:\Util\defrevr1234.exe
+* C:\Util\RunsDownloaded.exe
+* C:\Windows\System32\cmd.exe
+* C:\Windows\System32\cscript.exe
+* C:\Windows\System32\wscript.exe
+* C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+* C:\Windows\System32\wbem\WMIC.exe
+
+Процессы, добавляемые в исключения (дополнительно для архитектуры amd64)
+* C:\Windows\sysWOW64\cmd.exe
+* C:\Windows\sysWOW64\cscript.exe
+* C:\Windows\sysWOW64\wscript.exe
+* C:\Windows\sysWOW64\WindowsPowerShell\v1.0\powershell.exe
+* C:\Windows\sysWOW64\wbem\WMIC.exe

@@ -1,0 +1,263 @@
+<AppLockerPolicy Version="1">
+  <RuleCollection Type="Appx" EnforcementMode="NotConfigured" />
+  <RuleCollection Type="Dll" EnforcementMode="NotConfigured" />
+  <RuleCollection Type="Exe" EnforcementMode="Enabled">
+    <FilePublisherRule Id="3c854227-2c14-4bc1-9e6c-8f8f4d9e0ce2" Name="Подписано O=AVAST SOFTWARE S.R.O., L=PRAHA, C=CZ" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePublisherCondition PublisherName="O=AVAST SOFTWARE S.R.O., L=PRAHA, C=CZ" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="*" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePublisherRule Id="5401b4f6-ad9e-4511-9f56-208bdd056182" Name="Подписано O=DOCTOR WEB LTD., L=MOSCOW, C=RU" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePublisherCondition PublisherName="O=DOCTOR WEB LTD., L=MOSCOW, C=RU" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="*" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePublisherRule Id="655c563b-8350-4fcf-b93c-cad0fbf91b24" Name="Подписано O=KASPERSKY LAB JSC, L=MOSCOW, C=RU" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePublisherCondition PublisherName="O=KASPERSKY LAB JSC, L=MOSCOW, C=RU" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="*" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePublisherRule Id="e8051f81-98f8-4303-a553-cc2319d72d6c" Name="Подписано O=BEIJING QIHU TECHNOLOGY CO., LTD., S=BEIJING, C=CN" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePublisherCondition PublisherName="O=BEIJING QIHU TECHNOLOGY CO., LTD., S=BEIJING, C=CN" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="*" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePathRule Id="072fc8ba-fb79-402b-b351-58f90130fe03" Name="%OSDRIVE%\ADB\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\ADB\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="16d72b30-fd7b-4d44-883d-4676c43c2b68" Name="%OSDRIVE%\tools\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\tools\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="1af15329-31df-4386-85e7-aaa84fd94dcb" Name="%PROGRAMFILES%\Kaspersky Lab\*" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\Kaspersky Lab\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="1b9318e8-d498-48bd-97f3-552210c653f5" Name="%OSDRIVE%\Util\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Util\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="1f83a9fe-5d5f-458c-9e82-8d233184acbe" Name="%OSDRIVE%\ELEVATION\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\ELEVATION\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="26303678-df34-4e00-8c42-6087f58bd9af" Name="%OSDRIVE%\Python311\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python311\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="35e753ee-ff50-419b-b688-380645d41610" Name="%PROGRAMFILES%\360\Total Security\*" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\360\Total Security\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="43be3b05-1e71-4578-861f-791bf8fc1c03" Name="%PROGRAMFILES%\Avast Software\*" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\Avast Software\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="4f46e1cc-82c6-4bde-bf92-627452e8180e" Name="%OSDRIVE%\Python27.x86\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python27.x86\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="4ff02703-ef7a-420a-ac48-dbf22b0827ee" Name="%PROGRAMFILES%\DrWeb\*" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\DrWeb\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="53dc8abb-1c8b-44dc-8c9d-0ce8f8d7c963" Name="%OSDRIVE%\Python27.x64\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python27.x64\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="89e7e049-e8db-424a-8bbe-966065a63254" Name="%OSDRIVE%\pub1\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\pub1\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="921cc481-6e17-4653-8f75-050b80acca20" Name="(правило по умолчанию) Все файлы, расположенные в папке &quot;Program Files&quot;" Description="Разрешает группе &quot;Все&quot; запускать приложения, расположенные в папке &quot;Program Files&quot;." UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="a61c8b2c-a319-4cd0-9690-d2177cad7b51" Name="(правило по умолчанию) Все файлы, расположенные в папке &quot;Windows&quot;" Description="Разрешает группе &quot;Все&quot; запускать приложения, расположенные в папке &quot;Windows&quot;." UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%WINDIR%\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="aaf99693-c9d1-4d1d-a01c-86d9883cbdc1" Name="%OSDRIVE%\NIT.SYSUPDATE\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\NIT.SYSUPDATE\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="b2e1a9cf-b1fd-4530-952a-70fb26672063" Name="%PROGRAMFILES%\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="b34efc28-afa2-4e50-8394-4a3e92d6c66c" Name="%OSDRIVE%\Python38.x86\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python38.x86\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="bc61df3a-a190-4928-8f1b-bbf674fd2a7f" Name="%OSDRIVE%\Python38.x64\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python38.x64\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="f0c8c5a8-d51e-463a-a6fe-b6ca0e435133" Name="%OSDRIVE%\ProgramData\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\ProgramData\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="fd686d83-a829-4351-8ff4-27c7de5755d2" Name="(правило по умолчанию) Все файлы" Description="Разрешает локальным администраторам запускать любые приложения." UserOrGroupSid="S-1-5-32-544" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="*" />
+      </Conditions>
+    </FilePathRule>
+  </RuleCollection>
+  <RuleCollection Type="Msi" EnforcementMode="NotConfigured">
+    <FilePublisherRule Id="0f55f629-11ed-499a-a0bb-3a2eef3fdfc9" Name="Подписано O=AVAST SOFTWARE S.R.O., L=PRAHA, C=CZ" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePublisherCondition PublisherName="O=AVAST SOFTWARE S.R.O., L=PRAHA, C=CZ" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="*" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePublisherRule Id="62e9fc96-9e7c-4dc2-8d66-7777042b1556" Name="Подписано O=BEIJING QIHU TECHNOLOGY CO., LTD., S=BEIJING, C=CN" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePublisherCondition PublisherName="O=BEIJING QIHU TECHNOLOGY CO., LTD., S=BEIJING, C=CN" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="*" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePublisherRule Id="75fdfef4-4ea4-4ebd-80d1-d59f291e55fd" Name="Подписано O=DOCTOR WEB LTD., L=MOSCOW, C=RU" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePublisherCondition PublisherName="O=DOCTOR WEB LTD., L=MOSCOW, C=RU" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="*" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePublisherRule Id="aaca409a-9e61-43d2-b35e-b6c3174a543c" Name="Подписано O=KASPERSKY LAB JSC, L=MOSCOW, C=RU" Description="" UserOrGroupSid="S-1-1-0" Action="Deny">
+      <Conditions>
+        <FilePublisherCondition PublisherName="O=KASPERSKY LAB JSC, L=MOSCOW, C=RU" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="*" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePublisherRule Id="b7af7102-efde-4369-8a89-7a6a392d1473" Name="(правило по умолчанию) Все файлы установщика Windows c цифровой подписью" Description="Разрешает группе &quot;Все&quot; выполнять файлы установщика Windows с цифровой подписью." UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePublisherCondition PublisherName="*" ProductName="*" BinaryName="*">
+          <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+        </FilePublisherCondition>
+      </Conditions>
+    </FilePublisherRule>
+    <FilePathRule Id="5b290184-345a-4453-b184-45305f6d9a54" Name="(правило по умолчанию) Все файлы установщика Windows из каталога &quot;%systemdrive%\Windows\Installer&quot;" Description="Разрешает группе &quot;Все&quot; выполнять файлы установщика Windows с цифровой подписью, расположенные в каталоге из каталога &quot;%systemdrive%\Windows\Installer&quot;." UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%WINDIR%\Installer\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="64ad46ff-0d71-4fa0-a30b-3f3d30c5433d" Name="(правило по умолчанию) Все файлы установщика Windows" Description="Разрешает локальным администраторам запускать любые файлы установщика Windows." UserOrGroupSid="S-1-5-32-544" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="*.*" />
+      </Conditions>
+    </FilePathRule>
+  </RuleCollection>
+  <RuleCollection Type="Script" EnforcementMode="Enabled">
+    <FilePathRule Id="05931bbf-bac0-49f2-bede-314a45ffa920" Name="%OSDRIVE%\Python311\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python311\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="06dce67b-934c-454f-a263-2515c8796a5d" Name="(правило по умолчанию) Все сценарии в папке &quot;Program Files&quot;" Description="Разрешает членам группы &quot;Все&quot; выполнять любые сценарии, размещенные в папке &quot;Program Files&quot;." UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="0ce5e9ec-290f-4e42-bc6d-24bc5db87c5c" Name="%OSDRIVE%\Python38.x64\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python38.x64\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="1605447a-b5a3-45aa-a5d0-fd4f7f734f88" Name="%OSDRIVE%\ELEVATION\*" Description="Все скрипты из папки Elevation" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\ELEVATION\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="26c70b84-c055-4ff7-a4d5-c7d9b8a50b2b" Name="%OSDRIVE%\tools\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\tools\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="34636678-f8f6-428b-a230-e7c27771ed12" Name="%OSDRIVE%\pub1\*" Description="Все  скрипты из папки pub1" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\pub1\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="3d8eb2c4-7df6-4602-97de-af09cb289bd3" Name="%OSDRIVE%\Users\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Users\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="4f7d4c06-3b13-47f0-9f10-ae8e75436698" Name="%PROGRAMFILES%\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%PROGRAMFILES%\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="6640658c-2ed2-472a-a675-62b63ea7c48f" Name="%OSDRIVE%\Python27.x64\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python27.x64\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="82d0d2d0-a892-4214-9962-3b07dd81e0d3" Name="%OSDRIVE%\Util\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Util\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="9428c672-5fc3-47f4-808a-a0011f36dd2c" Name="(правило по умолчанию) Все сценарии в папке &quot;Windows&quot;" Description="Разрешает членам группы &quot;Все&quot; выполнять любые сценарии, размещенные в папке &quot;Windows&quot;." UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%WINDIR%\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="b4918ca9-7a76-432c-994b-8eab847886e1" Name="%OSDRIVE%\NIT.SYSUPDATE\*" Description="Скрипты из папки SysUpdate" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\NIT.SYSUPDATE\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="baf71b53-d279-48eb-977c-834c77f43db5" Name="Все сценарии" Description="Разрешает локальным администраторам выполнять любые сценарии." UserOrGroupSid="S-1-5-32-544" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="c93f6a27-f455-40b8-8ad5-0bc9a3bf3b21" Name="%OSDRIVE%\Python27.x86\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python27.x86\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="e9c9e064-e2d5-4f8f-86d5-d0a081b11f4c" Name="%OSDRIVE%\Python38.x86\*" Description="" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\Python38.x86\*" />
+      </Conditions>
+    </FilePathRule>
+    <FilePathRule Id="ec45eba4-c68b-4a96-baf2-23aa1582e170" Name="%OSDRIVE%\ProgramData\*" Description="Все скрипты из папки ProgramData" UserOrGroupSid="S-1-1-0" Action="Allow">
+      <Conditions>
+        <FilePathCondition Path="%OSDRIVE%\ProgramData\*" />
+      </Conditions>
+    </FilePathRule>
+  </RuleCollection>
+</AppLockerPolicy>

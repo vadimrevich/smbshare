@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***************************** -->
+<!--File ws -->
+<!-- MESSWIN7-dotNet01.wsf -->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="VBScript">
+	<![CDATA[
+		Dim sMessage
+		sMessage = "ВНИМАНИЕ!!!" & vbCrLf
+		sMessage = sMessage & "ATTENTION!!!" & vbCrLf
+		sMessage = sMessage & vbCrLf
+		sMessage = sMessage & "Данный скрипт устанавливае Microsoft dot Net Framework 4.6.2 и 4.8 на OS Windows." & vbCrLf
+		sMessage = sMessage & vbCrLf
+		sMessage = sMessage & "Пожалуйста, не закрывайте окно терминала." & vbCrLf
+		sMessage = sMessage & vbCrLf
+		sMessage = sMessage & "После установки обновлений необходимо перезагрузить компьютер, и продолжить обновление." & vbCrLf
+		sMessage = sMessage & vbCrLf
+		WScript.Echo sMessage
+	]]>
+	</script>
+</job>

@@ -1,0 +1,1 @@
+"%~dp0NIT\BIN\EditPad\EditPadLite8.exe" %*

