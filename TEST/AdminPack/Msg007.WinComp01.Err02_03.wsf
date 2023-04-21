@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***************************** -->
+<!-- File wsf -->
+<!-- Msg007.WinComp01.Err02_03.wsf -->
+<!--
+ * Test if LIB files is Installed
+ * (errorlevel 2 Text)
+-->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="JScript"></script>
+	<script language="JScript">
+	<![CDATA[
+	var aMsg02, iTimeOut;
+	aMsg02 = "";
+	iTimeOut = 3000; // 3 Sec
+
+	aMsg02 += "Error! Ошибка!\n\n";
+	aMsg02 += "Файлы поддержки TLS 1.2 не установлены.\n";
+	aMsg02 += "Проверьте сетевое соединение\nи повторно запустите файл\n\n";
+	aMsg02 += "C:\\NIT.SYSUPDATE\\NIT-SUDl-TLS.cmd";
+	aMsg02 += "\n\nВ случае, если ошибка повторяется, обратитесь к специалисту,\n";
+	aMsg02 += "или в Компанию New Internet Technologies Inc.\n";
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+	WScript.Echo aMsg02
+	WScript.Sleep iTimeOut
+	]]>
+	</script>
+</job>

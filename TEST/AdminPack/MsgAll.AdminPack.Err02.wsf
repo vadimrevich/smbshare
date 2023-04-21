@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***************************** -->
+<!-- File wsf -->
+<!-- MsgAll.AdminPack.Err02.wsf -->
+<!--
+ * Test if AdminPack Files is Installed
+ * (errorlevel 2 Text)
+-->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="JScript"></script>
+	<script language="JScript">
+	<![CDATA[
+	var aMsg02, iTimeOut;
+	aMsg02 = "";
+	iTimeOut = 6000; // 6 Sec
+
+	aMsg02 += "Error! Ошибка!\n\n";
+	aMsg02 += "Ваша система разрушена.\n"
+	aMsg02 += "Отсутствуют важные файлы установщика AdminPack.\n";
+	aMsg02 += "Попробуйте переустановить пакет AdminPack и все его компоненты.\n";
+	aMsg02 += "\nВ случае, если ошибка повторяется, обратитесь в New Internet Technologies Inc.\n";
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+	WScript.Echo aMsg02
+	WScript.Sleep iTimeOut
+	]]>
+	</script>
+</job>

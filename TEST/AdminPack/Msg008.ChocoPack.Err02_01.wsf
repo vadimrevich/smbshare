@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***************************** -->
+<!-- File wsf -->
+<!-- Msg008.ChocoPack.Err02_01.wsf -->
+<!--
+ * Test if Chocolatey Package is Installed
+ * (errorlevel 2 Text)
+-->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="JScript"></script>
+	<script language="JScript">
+	<![CDATA[
+	var aMsg02, iTimeOut;
+	aMsg02 = "";
+	iTimeOut = 3000; // 3 Sec
+
+	aMsg02 += "Error! Ошибка!\n\n";
+	aMsg02 += "Файлы chocolatey не установлены.\n";
+	aMsg02 += "Проверьте сетевое соединение\nи повторно запустите файл\n\n";
+	aMsg02 += "C:\\pub1\\Distrib\\LIB\\LIB-WSF\\Check.cvullgyagil4lf3xfzk6.-WinNew.wsf";
+	aMsg02 += "\n\nВ случае, если ошибка повторяется, обратитесь к специалисту,\n";
+	aMsg02 += "или в Компанию New Internet Technologies Inc.\n";
+	aMsg02 += "\nУ Вас также могут быть проблемы с антивирусом (не добавлены необходимые исключения)\n";
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+	WScript.Echo aMsg02
+	WScript.Sleep iTimeOut
+	]]>
+	</script>
+</job>

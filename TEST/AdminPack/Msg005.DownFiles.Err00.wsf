@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***************************** -->
+<!-- File wsf -->
+<!-- Msg005.DownFiles.Err00.wsf -->
+<!--
+ * Test Check Integrity
+ * (errorlevel 0 Text)
+-->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="JScript"></script>
+	<script language="JScript">
+	<![CDATA[
+	var aMsg02, iTimeOut;
+	aMsg02 = "";
+	iTimeOut = 6000; // 6 Sec
+
+	aMsg02 += "Success! Успех!\n\n";
+	aMsg02 += "Ваша система прошла тест на целостность.\n";
+	aMsg02 += "Все необходимые файлы NIT Download & Execute на месте.\n";
+	aMsg02 += "\nМожете продолжать тесты.\n";
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+	WScript.Echo aMsg02
+	WScript.Sleep iTimeOut
+	]]>
+	</script>
+</job>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***************************** -->
+<!-- File wsf -->
+<!-- Test001.dotNet3.Err02.wsf -->
+<!--
+ * Test if dotNet 3.5 is Installed
+ * (errorlevel 2 Text)
+-->
+<!-- ***************************** -->
+<job id="ID1">
+	<script language="JScript"></script>
+	<script language="JScript">
+	<![CDATA[
+	var aMsg02, iTimeOut;
+	aMsg02 = "";
+	iTimeOut = 3000; // 3 Sec
+
+	aMsg02 += "Error! Ошибка!\n\n";
+	aMsg02 += "Ваша система разрушена.\n";
+	aMsg02 += "Удалены важные системные файлы и каталоги.\n";
+	aMsg02 += "\nВ случае, если ошибка повторяется, Обратитесь к специалисту.\n";
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+	WScript.Echo aMsg02
+	WScript.Sleep iTimeOut
+	]]>
+	</script>
+</job>
