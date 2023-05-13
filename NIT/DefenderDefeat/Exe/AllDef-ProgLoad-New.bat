@@ -26,6 +26,12 @@ rem Metadata
 set PRODUCT_NAME=DefenderDefeat
 SET FIRM_NAME=NIT
 
+rem set TPDL variable
+rem
+if exist "C:\pub1\Distrib\Zlovred" set TPDL=C:\pub1\Distrib\Zlovred&& goto TPDL_End
+set TPDL=%TEMP%
+:TPDL_End
+
 rem
 echo Define Folders...
 rem
@@ -62,8 +68,8 @@ if not exist %CMDEXE% echo %CMDEXE% not exists && exit /b 16
 if not exist %ATTRIBEXE% echo %ATTRIBEXE% not exists && exit /b 16
 if not exist %BITSADMINEXE% echo %BITSADMINEXE% not exists && exit /b 16
 if not exist %REGEXE% echo %REGEXE% doesn't exist && exit /b 16
-if not exist %TEMP% echo %TEMP% not exists && exit /b 16
-if not exist "%ALLUSERSPROFILE%" echo %ALLUSERSPROFILE% not found && exit /b 16 
+if not exist %TPDL% echo %TPDL% not exists && exit /b 16
+if not exist "%ALLUSERSPROFILE%" echo %ALLUSERSPROFILE% not found && exit /b 16
 
 if not exist %LocalFolder% echo %LocalFolder% doesn't exist && exit /b 16
 
@@ -88,10 +94,10 @@ echo Host01 = %host01%
 echo Host02 = %host02%
 echo Host03 = %host03%
 
-title Installing Packages 
+title Installing Packages
 ::-------------------------------------
 REM  --> CheckING for permissions
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+net session >nul 2>&1
 
 REM --> If error flag set, we do not have admin.
 if '%errorlevel%' NEQ '0' (

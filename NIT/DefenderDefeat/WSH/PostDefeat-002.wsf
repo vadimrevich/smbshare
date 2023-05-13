@@ -78,8 +78,8 @@ Temporary Directory and Runs it with Elevated Privileges-->
 	' This Script Downloads Powershell file from strURL Path and
 	' Execute it with Script TimeOut in iTimeOut ms
 	'
-	' PARAMETERS:	strURL � URL Path to Download
-	'				iTimeOut � Wait to End Execution of the File
+	' PARAMETERS:	strURL — URL Path to Download
+	'				iTimeOut — Wait to End Execution of the File
 	' 				strFileNameExe - Name of Exe File
 	' RETURNS:		0 if Success Download and Run
 	'				1 if Error Occur
@@ -132,7 +132,7 @@ Temporary Directory and Runs it with Elevated Privileges-->
 	'
 	' This Script Downloads a file from strURL Path
 	'
-	' PARAMETERS:	strURL � URL Path to Download
+	' PARAMETERS:	strURL — URL Path to Download
 	' 				strFileNameExe - Name of a File
 	' RETURNS:		0 if Success Download and Run
 	'				1 if Error Occur

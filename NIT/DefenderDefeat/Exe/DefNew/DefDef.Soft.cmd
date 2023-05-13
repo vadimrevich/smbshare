@@ -81,7 +81,7 @@ rem  if not exist %REGINI% echo %REGINI% not present && exit /b 7
 title Installing Packages 
 ::-------------------------------------
 REM  --> CheckING for permissions
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+net session >nul 2>&1
 
 REM --> If error flag set, we do not have admin.
 if '%errorlevel%' NEQ '0' (
@@ -173,5 +173,4 @@ goto End
 
 :End
 echo The End of the Script %0
-exit /b %errstatus1%
-
+exit /b 

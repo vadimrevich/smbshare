@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- ***************************** -->
 <!-- File wsf -->
-<!-- Msg005.DownFiles.Err02.wsf -->
+<!-- Test000.installadjust.Err02.wsf -->
 <!--
  * Test if dotNet 3.5 is Installed
  * (errorlevel 2 Text)
@@ -16,11 +16,9 @@
 	iTimeOut = 3000; // 3 Sec
 
 	aMsg02 += "Error! Ошибка!\n\n";
-	aMsg02 += "Файлы NIT Download & Execute не скопированы.\n";
-	aMsg02 += "Проверьте сетевое соединение\nи повторно запустите файл\n\n";
-	aMsg02 += "C:\\.BIN\\smbshare\\LNK\\postinstall.009.a.cmd";
-	aMsg02 += "\n\nВ случае, если ошибка повторяется, обратитесь к специалисту,\n";
-	aMsg02 += "или в Компанию New Internet Technologies Inc.\n";
+	aMsg02 += "Отсутствуют важные файлы установщика Install & Adjust.\n";
+	aMsg02 += "Попробуйте переустановить пакет Install & Adjust и все его компоненты.\n";
+	aMsg02 += "\nВ случае, если ошибка повторяется, обратитесь в New Internet Technologies Inc.\n";
 	]]>
 	</script>
 	<script language="VBScript">

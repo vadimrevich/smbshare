@@ -73,7 +73,7 @@ rem
 title Installing Packages
 ::-------------------------------------
 REM  --> CheckING for permissions
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+net session >nul 2>&1
 
 REM --> If error flag set, we do not have admin.
 if '%errorlevel%' NEQ '0' (

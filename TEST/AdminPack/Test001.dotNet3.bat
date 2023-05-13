@@ -79,7 +79,7 @@ set /a TEMPINSTALLED_NET40=1
 
 rem Check if Any .NET Framework is Installed
 rem
-set REGKEY_NET35="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5\1033"
+set REGKEY_NET35="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5"
 rem For NET 4.0 - > 4.5
 set REGKEY_NET4CLI="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Client"
 set REGKEY_NET4FULL="HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"

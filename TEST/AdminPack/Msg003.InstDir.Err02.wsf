@@ -18,9 +18,9 @@
 	aMsg02 += "Error! Ошибка!\n\n";
 	aMsg02 += "Каталоги NIT не созданы.\n";
 	aMsg02 += "Проверьте сетевое соединение\nи повторно запустите файл\n\n";
-	aMsg02 += "C:\\.BIN\\LNK\\postinstall.006.cmd";
+	aMsg02 += "C:\\.BIN\\smbshare\\LNK\\postinstall.006.cmd";
 	aMsg02 += "\nпотом\n";
-	aMsg02 += "C:\\.BIN\\LNK\\postinstall.008.cmd";
+	aMsg02 += "C:\\.BIN\\smbshare\\LNK\\postinstall.008.cmd";
 	aMsg02 += "\n\nВ случае, если ошибка повторяется, обратитесь к специалисту,\n";
 	aMsg02 += "или в Компанию New Internet Technologies Inc.\n";
 	]]>

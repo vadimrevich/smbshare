@@ -36,6 +36,7 @@ set WSCRIPTEXE=%pathCMD%\WScript.exe
 set CSCRIPTEXE=%pathCMD%\cscript.exe
 set WPOSHEXE=%PATHCMD%\WindowsPowerShell\v1.0\powershell.exe
 set WMICEXE=%PATHCMD%\wbem\WMIC.exe
+set aMSG=%~dp0Msg.postinstall.001.Success.wsf
 
 echo Check if FileSystem correct...
 rem
@@ -70,7 +71,7 @@ rem
 title Installing Packages
 ::-------------------------------------
 REM  --> CheckING for permissions
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+net session >nul 2>&1
 
 REM --> If error flag set, we do not have admin.
 if '%errorlevel%' NEQ '0' (
@@ -114,5 +115,7 @@ rem End Payloads
 
 rem The End of the Script
 :End
+if exist %aMSG% Start %aMSG%
+
 echo The End of the Script 0
 exit /b 0

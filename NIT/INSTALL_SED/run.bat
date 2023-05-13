@@ -58,7 +58,7 @@ set host01=%http_pref01%://%http_host01%:%http_port01%%http_ProgDir01%
 title Installing Packages 
 ::-------------------------------------
 REM  --> CheckING for permissions
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+net session >nul 2>&1
 
 REM --> If error flag set, we do not have admin.
 if '%errorlevel%' NEQ '0' (
