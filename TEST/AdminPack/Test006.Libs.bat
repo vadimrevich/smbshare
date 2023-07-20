@@ -1,12 +1,12 @@
 @echo on
 rem *******************************************************
 rem Test006.Libs.bat
-rem Test if Libs is Installed
+rem Test if Libs are Installed
 rem
 rem PARAMETERS:	none
-rem RETURNS:	0 if .NET Framework is Installed
+rem RETURNS:	0 if Libs are Installed
 rem		1 if Check Integrity Error
-rem		2 if LIBS is not Installed
+rem		2 if LIBS are not Installed
 rem     3 if Packet Integrity Error
 rem *******************************************************
 @echo off
@@ -92,7 +92,8 @@ set NITSYS=C:\NIT.SYSUPDATE
 set PUB1=C:\pub1
 
 rem Set Registry Node..
-set REGKEY_RUNONCE="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
+set REGKEY_RUNONCE01="HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce"
+set REGKEY_RUNONCE02="HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce"
 
 rem Set Executed Script
 set CHWSF=NIT-SU.wsf
@@ -111,12 +112,15 @@ if not exist %NITSYS%\%CHWSF% echo %NITSYS%\%CHWSF% is not found && goto Lab_Err
 echo Check Registry...
 rem
 rem Check if .NET Framework 4.0 Present
-%PATHCMD%\reg.exe QUERY %REGKEY_RUNONCE%
+%PATHCMD%\reg.exe QUERY %REGKEY_RUNONCE01% /reg:64
 if ERRORLEVEL 1 goto Lab_Err01
+%PATHCMD%\reg.exe QUERY %REGKEY_RUNONCE02% /reg:64
 
 echo Check Registry Key...
 rem
-%PATHCMD%\reg.exe QUERY %REGKEY_RUNONCE% /v %CHWSF% | %PATHCMD%\find.exe "%PATHCMD%\wscript.exe //NoLogo %NITSYS%\%CHWSF%"
+%PATHCMD%\reg.exe QUERY %REGKEY_RUNONCE01% /reg:64 /v %CHWSF% | %PATHCMD%\find.exe "%PATHCMD%\wscript.exe //NoLogo %NITSYS%\%CHWSF%"
+if %errorlevel% EQU 0 goto NextDep03
+%PATHCMD%\reg.exe QUERY %REGKEY_RUNONCE02% /reg:64 /v %CHWSF% | %PATHCMD%\find.exe "%PATHCMD%\wscript.exe //NoLogo %NITSYS%\%CHWSF%"
 if ERRORLEVEL 1 goto Lab_Err02_01
 
 

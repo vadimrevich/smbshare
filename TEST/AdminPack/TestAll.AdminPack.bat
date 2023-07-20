@@ -23,6 +23,13 @@ set PRODUCT_NAME_FOLDER=
 set FIRM=NIT
 set SMBSHARE0=%~dp0..\..
 
+rem set TPDL variable
+rem
+if exist "C:\pub1\Distrib\Zlovred" set TPDL=C:\pub1\Distrib\Zlovred&& goto TPDL_End
+set TPDL=%TEMP%
+:TPDL_End
+
+rem
 echo Check OS Version and Processor Architecture...
 rem
 rem Set OS Architecture
@@ -135,7 +142,7 @@ if '%errorlevel%' NEQ '0' (
 
 :UACPrompt
 rem Lock Data
-exit /b 17
+rem exit /b 17
 rem
 set getadminvbs=nit-%~n0.vbs
     echo Set UAC = CreateObject^("Shell.Application"^) > "%TPDL%\%getadminvbs%"
@@ -186,6 +193,7 @@ goto End
 :Lab_Err02
 %CSCRIPTEXE1% //NoLogo %MSG000ERR02%
 echo The Error 2 in the Script %0
+pause
 exit /b 2
 
 :End

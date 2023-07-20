@@ -44,7 +44,7 @@ set fixhost="C:\Program Files\OpenSSH-Win64\FixHostFilePermissions.ps1"
 echo Check Integrity...
 rem
 if not exist %WORKINGPATH%\sshd_config echo %WORKINGPATH%\sshd_config not found && exit /b 16
-if not exist %ChockPath%\cinst.exe echo %ChockPath%\sed.exe not found && exit /b 16
+if not exist %ChockPath%\choco.exe echo %ChockPath%\choco.exe not found && exit /b 16
 if not exist %CURLEXE% echo %CURLEXE% not found && exit /b 16
 if not exist %wpwshexe% echo %wpwshexe% not found && exit / b 16
 if not exist %fixhost% echo %fixhost% not found && exit /b 16

@@ -1,12 +1,12 @@
 @echo on
 rem *******************************************************
-rem Test001.dotNet3.bat
-rem Test if dotNet 4.x is Installed
+rem Test003.InstDir.bat
+rem Test if Necessary Directories are Installed
 rem
 rem PARAMETERS:	none
-rem RETURNS:	0 if .NET Framework is Installed
+rem RETURNS:	0 if Directories are Installed
 rem		1 if Check Integrity Error
-rem		2 if .NET Framework is not Installed
+rem		2 if Directories are not Installed
 rem     3 if Packet Integrity Error
 rem *******************************************************
 @echo off

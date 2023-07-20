@@ -59,7 +59,7 @@ if not exist "%WSCRIPTEXE%" echo %WSCRIPTEXE% not Exist && exit /b 2
 if not exist "%PATHCMD%\shutdown.exe" echo "%PATHCMD%\shutdown.exe not Exists" && exit /b 2
 if not exist "%PATHCMD%\find.exe" echo "%PATHCMD%\find.exe not Exists" && exit /b 2
 if not exist "%WMICEXE%" echo "%WMICEXE% not Exists" && exit /b 2
-if not exist "%PATHCMD%\bitsadmin.exe" echo "%PATHCMD%\bitsadmin.exe not Exists" && exit /b 2
+rem if not exist "%PATHCMD%\bitsadmin.exe" echo "%PATHCMD%\bitsadmin.exe not Exists" && exit /b 2
 if not exist "%WPOSHEXE%" echo "%WPOSHEXE% not Exists" && exit /b 2
 rem if not exist "%PAR1%" echo "The File PAR1 = %PAR1% not found" && exit /b 2
 

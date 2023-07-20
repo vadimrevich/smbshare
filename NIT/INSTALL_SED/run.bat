@@ -35,7 +35,7 @@ goto CheckIntegrity
 echo Check Integrity...
 rem
 if not exist %SYSTarget% echo %SYSTarget% not found && exit /b 16
-if not exist %ChockPath%\cinst.exe echo %ChockPath%\sed.exe not found && exit /b 16
+if not exist %ChockPath%\choco.exe echo %ChockPath%\choco.exe not found && exit /b 16
 if not exist %CURLEXE% echo %CURLEXE% not found && exit /b 16
 
 rem set Remote Folders
@@ -99,7 +99,7 @@ rem
 
 echo Install sed.exe...
 rem
-%ChockPath%\cinst.exe -y sed
+%ChockPath%\choco.exe install -y sed
 if not exist %ChockPath%\sed.exe echo %ChockPath%\sed.exe not found && exit /b 16
 echo Copy System Files...
 rem

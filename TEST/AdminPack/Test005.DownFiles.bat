@@ -1,12 +1,12 @@
 @echo on
 rem *******************************************************
 rem Test005.DownFiles.bat
-rem Test if dotNet 4.x is Installed
+rem Test if Files for Download & Execute are Installed
 rem
 rem PARAMETERS:	none
-rem RETURNS:	0 if .NET Framework is Installed
+rem RETURNS:	0 if Files are Installed
 rem		1 if Check Integrity Error
-rem		2 if .NET Framework is not Installed
+rem		2 if Files are not Installed
 rem     3 if Packet Integrity Error
 rem *******************************************************
 @echo off

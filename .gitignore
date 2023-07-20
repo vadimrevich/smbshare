@@ -79,7 +79,7 @@ $RECYCLE.BIN/
 *.msu
 
 # Windows shortcuts
-*.lnk
+# *.lnk
 
 # =========================
 # Operating System Files
@@ -93,7 +93,7 @@ Release/
 # ========================
 # Icons Files
 # ========================
-*.ico
+# *.ico
 
 # ========================
 # Certificates Files
