@@ -1,5 +1,14 @@
 # Whats News
 
+#### Version 1.1.0.0
+
+- First Commercial Release
+
+#### Version 1.0.0.1
+
+- Add Items at Install-Adjust Section
+- Add Items at NIT Section
+
 #### Version 1.0.0.0
 
 - Add Network Settings

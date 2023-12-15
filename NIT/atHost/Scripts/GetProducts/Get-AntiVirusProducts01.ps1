@@ -1,0 +1,1 @@
+﻿Get-WMIObject -Namespace root\SecurityCenter2 -Class AntiVirusProduct | Select-Object -property instanceGuid, productState, displayName

@@ -1,0 +1,1 @@
+﻿Get-WMIObject -Class Win32_Product | Where-Object {$_.Vendor -Match "New Internet"} | Select-Object -Property Name, IdentifyingNumber, Vendor, Version | Sort-Object Name

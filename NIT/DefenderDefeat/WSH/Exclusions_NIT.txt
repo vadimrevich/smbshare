@@ -30,6 +30,7 @@
 > C:\NIT.SYSUPDATE
 > C:\Program Files\AutoIt3
 > C:\Program Files\PowerShell
+> C:\Program Files\RDPWrap
 > C:\Program Files\WindowsPowerShell
 > C:\ProgramData\NIT
 > C:\pub
@@ -38,9 +39,11 @@
 > C:\Python27.x86
 > C:\Python38.x64
 > C:\Python38.x86
+> C:\Python312
 > C:\Users\MSSQLSR
 > %UserProfile%\Documents\PowerShell
 > %UserProfile%\Documents\WindowsPowerShell
+> C:\tools
 > C:\Util
 > C:\Windows\System32\rserver30
 > C:\Windows\System32\WindowsPowerShell
