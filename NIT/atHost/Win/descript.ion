@@ -4,3 +4,6 @@ Set-ScriptAcl-003.ps1 -- Scripts' Acl Set\nÂ
 smbshare-mount.ps1 -- This Script Copy Windows Adjust Files and Shares a Folder with Copied Files\nÂ
 smbshare-unmount0.ps1 -- This Script Copy Windows Adjust Files and Shares a Folder with Copied Files\nÂ
 vscode.cmd -- This Script Runs a Microsoft VS Code Text Editor from Current Directory\nÂ
+NIT-SUDl-InitPr.cmd -- Initial Script For NIT.SysUpdate Start, Download and Install\nÂ
+MyJokeTask.NotGenue.Example.vbs -- This Script will make a Schedule Task to priint a Windows Not Genue pessage as task "MyJokeTaskNotGenue"\nIt is a Joke\n\nÂ
+notGenue.message.vbs -- This Script will Output a Windows not Genue Message when its Run\nIt is a Jolke\nÂ

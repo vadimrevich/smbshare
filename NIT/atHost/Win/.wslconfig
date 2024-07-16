@@ -1,0 +1,45 @@
+# Settings apply across all Linux distros running on WSL 2
+[WSL2]
+
+# Limits VM memory to use no more than 2 GB, this can be set as whole numbers using GB or MB
+memory=2048MB
+
+# Sets the VM to use one virtual processors
+processors=1
+
+# Sets amount of swap storage space to 4GB, default is 25% of available RAM
+swap=4GB
+
+# Turn on default connection to bind WSL 2 localhost to Windows localhost
+localhostForwarding=false
+
+# Turn off the GUI (WSLg) applications
+guiApplications=false
+
+# Turns on output console showing contents of dmesg when opening a WSL 2 distro for debugging
+debugConsole=false
+
+# Disables nested virtualization
+nestedVirtualization=false
+
+#  Number of milliseconds of VM inacrivity to cancel job
+vmIdleTimeout=6000
+
+# Enable experiemntal features
+[experimental]
+
+sparseVhd=true
+
+# Set Virtual Networks mode
+# networkingMode=mirrored
+# networkingMode=NAT # default
+
+# Turn off Windows Firewall rules for mirrored networks
+firewall=false
+
+# Use Windows Proxy at WSL
+autoProxy=true
+
+# Disable to Connect to Container with host IP address at mirrored networks
+hostAddressLoopback=false
+

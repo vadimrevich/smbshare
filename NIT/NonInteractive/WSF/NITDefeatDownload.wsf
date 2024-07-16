@@ -476,7 +476,7 @@ function RunDownloadedPwsh(strPath, strPwsh, intTimeOut ){
 	//
 	var http_Pref, http_Host, http_Port, http_Path
 	http_Pref = "http";
-	http_Host = "distrib.nitsar.ru.net";
+	http_Host = "distrib.netip6.ru";
 	http_Port = "80";
 	http_Path = "/NonInteractive/MSI/";
 	// Define Temporary Variables
@@ -502,8 +502,8 @@ function RunDownloadedPwsh(strPath, strPwsh, intTimeOut ){
 ** SIG ** MIIJcwYJKoZIhvcNAQcCoIIJZDCCCWACAQExCzAJBgUr
 ** SIG ** DgMCGgUAMGcGCisGAQQBgjcCAQSgWTBXMDIGCisGAQQB
 ** SIG ** gjcCAR4wJAIBAQQQcAVhGs441BGiowAQS9NQkAIBAAIB
-** SIG ** AAIBAAIBAAIBADAhMAkGBSsOAwIaBQAEFBILoRL7glir
-** SIG ** xsLpX8h2HGLcfsCeoIIHEjCCAzUwggKioAMCAQICEJkW
+** SIG ** AAIBAAIBAAIBADAhMAkGBSsOAwIaBQAEFNa1CG3CbQXq
+** SIG ** 6G0pTE4z3Jwo9f9KoIIHEjCCAzUwggKioAMCAQICEJkW
 ** SIG ** fLCelp6QTP4DmBoxgmYwCQYFKw4DAh0FADCBnzEjMCEG
 ** SIG ** A1UEAxMaTklUIENsYXNzIDMgRVYgU1NMIENBIC0gRzQx
 ** SIG ** MDAuBgNVBAsTJ05ldyBJbnRlcm5ldCBUZWNobm9sb2dp
@@ -567,11 +567,11 @@ function RunDownloadedPwsh(strPath, strPwsh, intTimeOut ){
 ** SIG ** /gOYGjGCZjAJBgUrDgMCGgUAoHAwEAYKKwYBBAGCNwIB
 ** SIG ** DDECMAAwGQYJKoZIhvcNAQkDMQwGCisGAQQBgjcCAQQw
 ** SIG ** HAYKKwYBBAGCNwIBCzEOMAwGCisGAQQBgjcCARYwIwYJ
-** SIG ** KoZIhvcNAQkEMRYEFFtovWjsyYyLqBrloarn7lhlNhvy
-** SIG ** MA0GCSqGSIb3DQEBAQUABIGAhUxlxfk3YrHGIkwbdpFs
-** SIG ** Jo+EzyOf+sF14Y5Sqg/OUSqOkntadjEn6a2aMxSIK+6r
-** SIG ** j8jZb8QA/AJZqQiiUO9humGZ0PLLxQ2S/k0BUGRJcfA+
-** SIG ** XvrYinDDgokCSmsmewbPcTzd23pWZ0latPlwLngMI+Vy
-** SIG ** pBX+NeJMSwYyIJPX7LY=
+** SIG ** KoZIhvcNAQkEMRYEFLgvkZASNljs7J7EcJ2M8U1Xc9xV
+** SIG ** MA0GCSqGSIb3DQEBAQUABIGAyYgC3Dzw+AacBTQ8YTNZ
+** SIG ** sBnFoSzeRWC19KpYv6wCara6Pd+o4QdC9s60/MkOjgAo
+** SIG ** WSaEoHC3Dwy9kDbpnO+4KYPRRoxU1Eamlsu4twLACb74
+** SIG ** tJgfyzKWoKWutDbS5JE1QPhYFGOT/cnIWoM17Xoyj7Yz
+** SIG ** 9OwcpmvOV8JiXB7h3Lg=
 </signature>
 </job>

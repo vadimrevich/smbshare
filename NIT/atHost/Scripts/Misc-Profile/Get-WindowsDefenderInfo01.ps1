@@ -1,0 +1,1 @@
+﻿Get-WMIObject -Class Win32_Product | Where-Object -Property Name -Match "Defender" | Select-Object -Property Name, IdentifyingNumber, Vendor, Version, InstallLocation

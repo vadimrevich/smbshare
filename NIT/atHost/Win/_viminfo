@@ -1,0 +1,295 @@
+# Этот viminfo-файл автоматически создан программой Vim 9.1.
+# Его можно (осторожно!) редактировать.
+
+# Viminfo version
+|1,4
+
+# Значение параметра 'encoding' в момент записи файла
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Журнал командной строки (от новых к старым):
+:q
+|2,0,1713862103,,"q"
+:w
+|2,0,1713862095,,"w"
+:!q
+|2,0,1703390469,,"!q"
+:qq
+|2,0,1703390435,,"qq"
+
+# Журнал поисковой строки (от новых к старым):
+
+# Журнал вычислений (от новых к старым):
+
+# Журнал строки ввода (от новых к старым):
+
+# Журнал команд отладки (от новых к старым):
+
+# Регистры:
+""-	CHAR	0
+	t
+|3,1,36,0,1,0,1713862075,"t"
+
+# Журнал общих закладок:
+'0  11  13  ~\raspi-ssh.bat
+|4,48,11,13,1713862103,"~\\raspi-ssh.bat"
+'1  7  62  ~\wol-diana.bat
+|4,49,7,62,1703412074,"~\\wol-diana.bat"
+'2  7  74  ~\wol-server.bat
+|4,50,7,74,1703411965,"~\\wol-server.bat"
+'3  7  10  ~\wol-server.bat
+|4,51,7,10,1703390751,"~\\wol-server.bat"
+'4  7  58  ~\wol-server.bat
+|4,52,7,58,1703390524,"~\\wol-server.bat"
+'5  7  58  ~\wol-server.bat
+|4,53,7,58,1703390524,"~\\wol-server.bat"
+'6  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,54,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+'7  1  0  ~\nit-remoteenable-check.bat
+|4,55,1,0,1694024933,"~\\nit-remoteenable-check.bat"
+
+# Журнал переходов (в начале более новые):
+-'  11  13  ~\raspi-ssh.bat
+|4,39,11,13,1713862103,"~\\raspi-ssh.bat"
+-'  1  0  ~\raspi-ssh.bat
+|4,39,1,0,1713862040,"~\\raspi-ssh.bat"
+-'  7  62  ~\wol-diana.bat
+|4,39,7,62,1703412074,"~\\wol-diana.bat"
+-'  7  62  ~\wol-diana.bat
+|4,39,7,62,1703412074,"~\\wol-diana.bat"
+-'  1  0  ~\wol-diana.bat
+|4,39,1,0,1703412014,"~\\wol-diana.bat"
+-'  1  0  ~\wol-diana.bat
+|4,39,1,0,1703412014,"~\\wol-diana.bat"
+-'  7  74  ~\wol-server.bat
+|4,39,7,74,1703411965,"~\\wol-server.bat"
+-'  7  74  ~\wol-server.bat
+|4,39,7,74,1703411965,"~\\wol-server.bat"
+-'  7  74  ~\wol-server.bat
+|4,39,7,74,1703411965,"~\\wol-server.bat"
+-'  7  74  ~\wol-server.bat
+|4,39,7,74,1703411965,"~\\wol-server.bat"
+-'  7  10  ~\wol-server.bat
+|4,39,7,10,1703390751,"~\\wol-server.bat"
+-'  7  10  ~\wol-server.bat
+|4,39,7,10,1703390751,"~\\wol-server.bat"
+-'  7  10  ~\wol-server.bat
+|4,39,7,10,1703390751,"~\\wol-server.bat"
+-'  7  10  ~\wol-server.bat
+|4,39,7,10,1703390751,"~\\wol-server.bat"
+-'  7  58  ~\wol-server.bat
+|4,39,7,58,1703390524,"~\\wol-server.bat"
+-'  7  58  ~\wol-server.bat
+|4,39,7,58,1703390524,"~\\wol-server.bat"
+-'  7  58  ~\wol-server.bat
+|4,39,7,58,1703390524,"~\\wol-server.bat"
+-'  7  58  ~\wol-server.bat
+|4,39,7,58,1703390524,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  1  0  ~\wol-server.bat
+|4,39,1,0,1703390349,"~\\wol-server.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  25  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,25,0,1696963565,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\Add_DesktopExperience_W2H12.bat
+|4,39,1,0,1696962854,"~\\Add_DesktopExperience_W2H12.bat"
+-'  1  0  ~\nit-remoteenable-check.bat
+|4,39,1,0,1694024933,"~\\nit-remoteenable-check.bat"
+-'  1  0  ~\nit-remoteenable-check.bat
+|4,39,1,0,1694024933,"~\\nit-remoteenable-check.bat"
+-'  1  0  ~\nit-remoteenable-check.bat
+|4,39,1,0,1694024933,"~\\nit-remoteenable-check.bat"
+-'  1  0  ~\nit-remoteenable-check.bat
+|4,39,1,0,1694024933,"~\\nit-remoteenable-check.bat"
+-'  1  0  ~\nit-remoteenable-check.bat
+|4,39,1,0,1694024933,"~\\nit-remoteenable-check.bat"
+-'  1  0  ~\nit-remoteenable-check.bat
+|4,39,1,0,1694024933,"~\\nit-remoteenable-check.bat"
+
+# Журнал локальных закладок (от новых к старым):
+
+> ~\raspi-ssh.bat
+	*	1713862095	0
+	"	11	13
+	^	11	14
+	.	11	13
+	+	10	22
+	+	11	13
+
+> ~\wol-diana.bat
+	*	1703412069	0
+	"	7	62
+	^	7	63
+	.	7	62
+	+	7	62
+
+> ~\wol-server.bat
+	*	1703411955	0
+	"	7	74
+	^	7	30
+	.	7	29
+	+	7	29
+
+> ~\Add_DesktopExperience_W2H12.bat
+	*	1696963555	0
+	"	25	0
+	^	25	0
+	.	24	9
+	+	20	0
+	+	17	0
+	+	11	33
+	+	16	62
+	+	18	3
+	+	20	80
+	+	24	9
+
+> ~\nit-remoteenable-check.bat
+	*	1694024890	0
+	"	1	0

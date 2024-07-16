@@ -1,5 +1,9 @@
 # Whats News
 
+#### Version 1.1.1.0
+
+- Add some Usefull Scripts
+
 #### Version 1.1.0.0
 
 - First Commercial Release
