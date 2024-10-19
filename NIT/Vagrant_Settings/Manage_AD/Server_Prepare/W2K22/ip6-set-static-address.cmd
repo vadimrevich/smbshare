@@ -9,7 +9,7 @@ rem *******************************************************
 
 rem Define Local Variables (must be change)
 set interface_name="Ethernet0"
-set ip_address=192.168.252.46
+set ip_address=192.168.252.10
 set ip_mask=255.255.255.0
 set ip_gateway=192.168.252.1
 

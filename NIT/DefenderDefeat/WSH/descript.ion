@@ -1,9 +1,9 @@
 AllDefeatDownload-002.wsf -- File for Download And Install NIT Sysstem Update Files
 AllDefeatDownload.wsf -- File for Download And Install NIT Sysstem Update Files
 download.php - Script for Force Downloading Files from Server (Threaded)\nÂ
+Exclusions_NIT.txt -- A File with Instructions for Manual Add Antivirus Exclusions on Windows Computers\nÂ
 InitialCreate.wsf -- Download and Execute Script for Initial Folder Creation\nÂ
 PostCancel-002.wsf -- Download and Execute Some File Deting Script\nÂ
 PostCancel.wsf -- Download and Execute Some File Deting Script\nÂ
 PostDefeat-002.wsf -- Download and Execute Post Defeat Script\nÂ
 PostDefeat.wsf -- Download and Execute Post Defeat Script\nÂ
-Exclusions_NIT.txt -- A File with Instructions for Manual Add Antivirus Exclusions on Windows Computers\nÂ
