@@ -1,0 +1,17 @@
+Windows 10 Modified Image login user password 0A9s8d7F
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destwin/win10-22h2_x64_ru_Pro.iso.hash
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destwin/win10-22h2_x64_ru_Pro.iso
+
+Windows Server 2012 Modified Image login Администратор password 0A9s8d7F
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destwin/winserver_2012_x64_ru_datacenter_desktop.iso.hash
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destwin/winserver_2012_x64_ru_datacenter_desktop.iso
+
+Windows Server 2022 Modified Image login Администратор password 0A9s8d7Fftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destwin/winserver_2022_x64_ru_datacenter_desktop.iso.hash
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destwin/winserver_2022_x64_ru_datacenter_desktop.iso.hash
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destwin/winserver_2022_x64_ru_datacenter_desktop.iso
+
+Astra Linux Special Edition 1.7.4 Original Image
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destlin/Astra%20Linux%20SE%201.7.4/1.7.4-24.04.2023_14.23.iso.hash
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destlin/Astra%20Linux%20SE%201.7.4/1.7.4-24.04.2023_14.23.iso
+ftp://mssqlsr:Admin01234@files.netip4.ru:21/html/ISO/destlin/astra-linux-special-edition-1_7_4-1xdvd.torrent
+

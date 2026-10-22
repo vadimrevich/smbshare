@@ -1,0 +1,9 @@
+set /p i="Введите целое число: "
+set /a x=1
+:loop
+if %i% EQU 0 goto End
+set /a x*=%i%
+set /a i-=1
+goto loop
+:end
+echo Факториал = %x%

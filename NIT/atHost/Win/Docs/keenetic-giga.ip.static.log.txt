@@ -1,0 +1,17 @@
+ip static tcp PPPoE0 22080 e4:5f:01:a7:28:fc !apache2 raspi4
+ip static tcp PPPoE0 22022 e4:5f:01:a7:28:fc 22 !SSH raspi4
+ip static schedule schedule1
+ip static tcp PPPoE0 10022 a8:5e:45:d5:44:b3 22 !SSH laptop
+ip static schedule schedule1
+ip static tcp PPPoE0 6000 a8:5e:45:d5:44:b3 !XServer Laptop
+ip static tcp PPPoE0 12080 a8:5e:45:d5:44:b3 80 !HTTP Laptop
+ip static schedule schedule1
+ip static tcp PPPoE0 4782 a8:5e:45:d5:44:b3 !Quasar
+ip static tcp PPPoE0 1446 a8:5e:45:d5:44:b3 445 !smb_laptop
+ip static tcp PPPoE0 1445 78:ac:c0:88:55:fd 445 !smb_server
+ip static tcp PPPoE0 1450 38:60:77:94:67:a5 445 !smb_diana
+ip static tcp PPPoE0 111 e4:5f:01:a7:28:fc !rcpbind_kali
+ip static tcp PPPoE0 2049 e4:5f:01:a7:28:fc !nfs_kali
+ip static tcp PPPoE0 10002 e4:5f:01:a7:28:fc 10000 !Kali Webmin
+ip static tcp PPPoE0 9000 e4:5f:01:a7:28:fc !Portainer Kali
+ip static tcp PPPoE0 8282 e4:5f:01:a7:28:fc !Guacamole Kali

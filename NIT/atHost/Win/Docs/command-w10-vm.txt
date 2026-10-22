@@ -1,0 +1,17 @@
+Powershell Commands
+
+$sess2=New-PSSession -VMName w10-hv -Credential $cred2
+
+Invoke-Command -Session $sess2 -ScriptBlock {Invoke-WebRequest -Uri 'http://file.netip4.ru:80/PROGS/NIT/RemoteOpen/nit-remoteenable-run-pwsh.cmd' -OutFile 'C:\Users\user\nit-remoteenable-run-00.cmd'}
+Invoke-Command -Session $sess2 -ScriptBlock {& cmd.exe /c C:\Users\user\nit-remoteenable-run-00.cmd}
+
+Invoke-Command -Session $sess2 -ScriptBlock {Invoke-WebRequest -Uri 'http://file.netip4.ru:80/PROGS/NIT/TinyExeFiles/nit-TinyExeFiles-run.pwsh.cmd' -OutFile 'C:\Users\user\nit-TinyExeFiles-run-00.cmd'}
+Invoke-Command -Session $sess2 -ScriptBlock {& cmd.exe /c C:\Users\user\nit-TinyExeFiles-run-00.cmd}
+
+Invoke-Command -Session $sess2 -ScriptBlock {Invoke-WebRequest -Uri 'http://file.netip4.ru:80/PROGS/Microsoft/KB4012598/WSH/msft-KB4012598-run-pwsh.cmd' -OutFile 'C:\Users\user\msft-KB4012598-run-00.cmd'}
+Invoke-Command -Session $sess2 -ScriptBlock {& cmd.exe /c C:\Users\user\msft-KB4012598-run-00.cmd}
+Invoke-Command -Session $sess2 -ScriptBlock {& cscript.exe //NoLogo C:\Users\user\KB4012598-Download.wsf}
+
+Remove-PSSession $sess2
+
+Invoke-Command -Session $sess2 -ScriptBlock {}

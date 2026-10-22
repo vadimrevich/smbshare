@@ -1,0 +1,7 @@
+debug: warn
+oauth2-tokenurl: https://auth.contabo.com/auth/realms/contabo/protocol/openid-connect/token
+oauth2-clientid: INT-436704
+oauth2-client-secret: b2ef5bad-53b2-4934-87e8-97a6aa27d809
+oauth2-user: vadimrevich21@gmail.com
+oauth2-password: Paosiduf.0
+api: https://api.contabo.com

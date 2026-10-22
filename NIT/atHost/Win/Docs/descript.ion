@@ -1,0 +1,44 @@
+akelpad.cmd -- This Script Runs AkelPad Text Editor from Current Directory\nВ
+check.av.wmic.cmd -- This Script will Check a System Antivirus\nВ
+descript.ion -- Directory Description (This File)\nВ
+MyJokeTask.NotGenue.Example.vbs -- This Script will make a Schedule Task to priint a Windows Not Genue pessage as task "MyJokeTaskNotGenue"\nIt is a Joke\n\nВ
+NIT-SUDl-InitPr.cmd -- Initial Script For NIT.SysUpdate Start, Download and Install\nВ
+NIT-UnblockFiles.ps1 -- Unblock all downloaded files from Internet at folders UserProfile, My Desktop, My Documents, My Downloads\nRequire PowrShell 3.0+\n\nВ
+NIT.Check.AV.ps1 -- This Script will Check a System Antivirus\n\nВ
+NIT.New-XSmbShare.Mount.ps1 -- This Script Copy Windows Adjust Files and Shares a Folder with Copied Files\nВ
+notGenue.message.vbs -- This Script will Output a Windows not Genue Message when its Run\nIt is a Jolke\nВ
+npp.cmd -- This Script Runs Notepad++ Text Redactor from Current Directory\nВ
+Register.bat -- Этот файл регистрирует каталоги пакета Elevation в оболочке Windows, но не устанавливает сам пакет!\nВ
+server-ssh.bat -- This Script will Connect to a Home Windows Server\nВ
+Set-ScriptAcl-003.ps1 -- Scripts' Acl Set\nВ
+smbshare-mount.ps1 -- This Script Copy Windows Adjust Files and Shares a Folder with Copied Files\nВ
+smbshare-unmount0.ps1 -- This Script Copy Windows Adjust Files and Shares a Folder with Copied Files\nВ
+vscode.cmd -- This Script Runs a Microsoft VS Code Text Editor from Current Directory\nВ
+NIT.Remove-XSmbShare.Mount.ps1 -- This Script Copy Windows Adjust Files and Shares a Folder with Copied Files\nВ
+SManager.bat -- Run Server Manager if Exist\nВ
+NIT.GOTO-AllUsersPrograms.ps1 -- Go to AllUsersProfile Programs Links Folder\nВ
+DNTUManager.bat -- Run DameWare Remote Support if Exist\nВ
+defl_start.bat -- Template to Start Reverse RAT\nВ
+defr_start.bat -- Template to Start Reverse RAT\nВ
+stalin_start.bat -- Template to Start Reverse RAT\nВ
+templ_start.bat -- Template to Start Reverse RAT\nВ
+kill_MyRAT.bat -- Template to Start Reverse RAT\nВ
+RunAsAdminHere.cmd -- программа для запуска программы или командного файла от имени администратора (без параметров) из командной строки\nВ
+Enable_Fast_User_Switching.bat -- Enable Fast User Switcher at Windows Computers\nВ
+winlogon-user.reg -- Show User Account «user» at Start Screen\nВ
+recaptcha-fish.04.ps1 -- This Script will Install NIT Remote Admin Setup Tools at Windows 10+ Computer\nВ
+toXorBase64.ps1 -- This Script will Encode a file by XOR and base64
+fromXorBase64.ps1 -- This Script will Decode a file by XOR and base64\nВ
+forXor.ps1 -- This Script will Encode a file by XOR\nВ
+NIT.New-Util.at.Path.Machine.ps1 -- Add an UTIL Variable at a System PATH Variable\nВ
+NIT.New-Util.at.Env.Machine.ps1 -- Add an UTIL variable at System Environment\nВ
+LaZagne.exe -- Credential Restore Program\nIt is marked as malware!\nВ
+NIT-Win.Adjust.000_1.ps1 -- Windows Adjusting for old Windows\nMust be manually add Windows Exclusions\nВ
+NIT-Win.Adjust.All.002.ps1 -- Windows Adjusting for old Windows\nMust be manually add Windows Exclusions\nВ
+install.uninstall.tool.cmd -- Installation Script for Uninstall Tool (repack)\nВ
+NIT.Restart-Comp.Popup.ps1 -- Popup Message about Restart Computer\nВ
+kill.msgr.bat -- Script for Kill Messengers and other Programs\nВ
+NIT.Kill.Cmd.000.bat -- Template to Kill Comandrs and Terminals\nВ
+lib_run_commands-0.1.js -- Some JS Functions for Running a Commnd from a Text Variable\nВ
+NIT-Win.Adjust.All.003.ps1 -- Windows Adjusting for old Windows\nMust be manually add Windows Exclusions\nВ
+NIT-Win.Adjust.003_1.ps1 -- Windows Adjusting for old Windows\nMust be manually add Windows Exclusions\nВ

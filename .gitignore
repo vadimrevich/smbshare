@@ -48,11 +48,30 @@ $RECYCLE.BIN/
 *.exe
 *.war
 *.dll
+*.elf
+*.bin
+*.sys
+*.ocx
+*.com
+*.apk
 
 # Windows archieve files
 *.zip
 *.rar
 *.7z
+*.tar
+*.gz
+*.bz
+*.bzip
+*.bzip2
+*.bz2
+*.tgz
+*.arj
+*.ace
+*.lha
+*.iso
+*.Z
+*.xz
 
 # Large media files
 *.mp4
@@ -61,6 +80,10 @@ $RECYCLE.BIN/
 *.flv
 *.mov
 *.wmv
+*.mp3
+*.aac
+*.m4a
+*.wma
 
 # Auxiliary Files
 *.obj
@@ -70,6 +93,7 @@ $RECYCLE.BIN/
 *.log
 *.bak
 *.o
+*.so
 
 # Windows Installer files
 *.cab
@@ -77,6 +101,19 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 *.msu
+
+# Linux Installer Files
+*.deb
+*.rpm
+
+# OS Images
+*.iso
+*.ova
+*.ovf
+*.vmdk
+*.vdi
+*.vhd
+*.vhdx
 
 # Windows shortcuts
 # *.lnk
@@ -89,6 +126,8 @@ $RECYCLE.BIN/
 obj/
 Debug/
 Release/
+Test/
+TEST/
 
 # ========================
 # Icons Files

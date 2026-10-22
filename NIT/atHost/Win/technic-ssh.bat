@@ -1,0 +1,21 @@
+@echo off
+rem *******************************************************
+rem raspi4-ssh.bat
+rem This Script will Connect to a Virtual Machine 
+rem *******************************************************
+@echo off
+
+rem set a variables
+rem
+set VMNAME=technic.netcraze.link
+set VM_USER=admin
+set VM_PASS=0a9s8d7F
+set VM_SSHPORT=55022
+
+rem Run Payloads
+ping.exe -n 2 -4 %VMNAME% > nul 2> nul
+if %errorlevel% NEQ 0 echo Cannot connect to %VMNAME% && exit /b 2
+ssh -p %VM_SSHPORT% -4 %VM_USER%@%VMNAME%
+rem kitty -P %VM_SSHPORT% -pw %VM_PASS% -4 %VM_USER%@%VMNAME%
+if %errorlevel% NEQ 0 echo Cannot connect to %VMNAME% && exit /b 2
+exit /b 0

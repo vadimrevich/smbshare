@@ -1,0 +1,1 @@
+DownloadFile.ashx -- Script for Downloading file from a Directory\nUSAGE: ./DownloadFile.ashx?file=filename.ext\nÂ

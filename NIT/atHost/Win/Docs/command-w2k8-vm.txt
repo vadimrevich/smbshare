@@ -1,0 +1,10 @@
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h certutil.exe -urlcache -f http://file.netip4.ru:80/PROGS/NIT/RemoteOpen/nit-remoteenable-run-w61.cmd C:\Users\Администратор\nit-remoteenable-run-00.cmd
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd.exe /c C:\Users\Администратор\nit-remoteenable-run-00.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h certutil.exe -urlcache -f http://file.netip4.ru:80/PROGS/NIT/TinyExeFiles/nit-TinyExeFiles-run.w61.cmd C:\Users\Администратор\nit-TinyExeFiles-run-00.cmd
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd.exe /c C:\Users\Администратор\nit-TinyExeFiles-run-00.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h certutil.exe -urlcache -f http://file.netip4.ru:80/PROGS/Microsoft/KB4012598/WSH/msft-KB4012598-run-w61.cmd C:\Users\Администратор\msft-KB4012598-run-00.cmd
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd.exe /c C:\Users\Администратор\msft-KB4012598-run-00.cmd
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cscript.exe //NoLogo C:\Users\Администратор\KB4012598-Download.wsf
+

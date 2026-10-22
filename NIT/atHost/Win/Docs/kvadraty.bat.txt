@@ -1,0 +1,12 @@
+@echo off
+set /p i="Введите целое число: "
+set /a x=0
+set /a n=%i%
+:loop
+if %i% EQU 0 goto End
+set /a x=%n%-%i%+1
+set /a x=%x%*%x%
+set /a i-=1
+echo %x%
+goto loop
+:end

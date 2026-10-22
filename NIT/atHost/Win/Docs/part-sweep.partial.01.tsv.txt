@@ -1,0 +1,43 @@
+192.168.252.1	53	domain	ISC BIND	9.11.2	
+192.168.252.1	139	netbios-ssn			
+192.168.252.1	443	https			
+192.168.252.1	445	microsoft-ds			
+192.168.252.1	8118	http-proxy	Privoxy http proxy		
+192.168.252.1	55022	ssh			protocol 2.0
+192.168.252.1	55023	telnet			
+192.168.252.1	65021	ftp	Pure-FTPd		
+192.168.252.1	65080	unknown			
+192.168.252.17	22	ssh	OpenSSH	for_Windows_8.0	protocol 2.0
+192.168.252.17	80	http	Microsoft IIS httpd	10.0	
+192.168.252.17	135	msrpc	Microsoft Windows RPC		
+192.168.252.17	139	netbios-ssn	Microsoft Windows netbios-ssn		
+192.168.252.17	445	microsoft-ds	Windows 10 Pro 22000 microsoft-ds		workgroup: WORKGROUP
+192.168.252.17	554	rtsp			
+192.168.252.17	2179	vmrdp			
+192.168.252.17	3389	ms-wbt-server			
+192.168.252.17	5040	unknown			
+192.168.252.17	5357	http	Microsoft HTTPAPI httpd	2.0	SSDP/UPnP
+192.168.252.17	5985	http	Microsoft HTTPAPI httpd	2.0	SSDP/UPnP
+192.168.252.17	7680	pando-pub			
+192.168.252.17	49664	msrpc	Microsoft Windows RPC		
+192.168.252.17	49666	msrpc	Microsoft Windows RPC		
+192.168.252.17	49667	msrpc	Microsoft Windows RPC		
+192.168.252.17	49668	msrpc	Microsoft Windows RPC		
+192.168.252.17	49670	msrpc	Microsoft Windows RPC		
+192.168.252.17	49674	msrpc	Microsoft Windows RPC		
+192.168.252.17	49676				
+192.168.252.55	21	ftp			
+192.168.252.55	22	ssh	OpenSSH	8.4p1 Raspbian 5+b1	protocol 2.0
+192.168.252.55	139	netbios-ssn	Samba smbd	4.6.2	
+192.168.252.55	445	netbios-ssn	Samba smbd	4.6.2	
+192.168.252.55	5900	vnc	RealVNC Enterprise	5.3 or later	protocol 5.0
+192.168.252.55	10000	http	MiniServ	1.994	Webmin httpd
+192.168.252.55	22080	http	Apache httpd	2.4.53	(Raspbian)
+192.168.252.254	23	telnet			
+192.168.252.254	80	http	GoAhead WebServer		
+192.168.252.11	22	ssh	OpenSSH	8.4p1 Raspbian 5+b1	protocol 2.0
+192.168.252.11	139	netbios-ssn	Samba smbd	4.6.2	
+192.168.252.11	445	netbios-ssn	Samba smbd	4.6.2	
+192.168.252.11	5900	vnc	RealVNC Enterprise	5.3 or later	protocol 5.0
+192.168.252.11	8888	http	libwww-perl-daemon httpd	6.14	
+192.168.252.11	10000	http	MiniServ	1.994	Webmin httpd

@@ -1,0 +1,21 @@
+Windows Registry Editor Version 5.00
+ 
+;Контекстное меню папки
+[HKEY_CLASSES_ROOT\Directory\shell\ExplorerElevated]
+@="Открыть папку от имени администратора"
+;Отображение пункта только при нажатой клавише SHIFT
+"Extended"=""
+"Icon"="imageres.dll,73"
+ 
+[HKEY_CLASSES_ROOT\Directory\shell\ExplorerElevated\command]
+@="nircmd.exe elevate explorer.exe /separate /root,\"%1\""
+ 
+;Контекстное меню фона папки и рабочего стола
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ExplorerElevated]
+@="Открыть папку от имени администратора"
+;Отображение пункта только при нажатой клавише SHIFT
+"Extended"=""
+"Icon"="imageres.dll,73"
+ 
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ExplorerElevated\command]
+@="nircmd.exe elevate explorer.exe /separate /root,\"%V\""

@@ -1,0 +1,10 @@
+psexec.exe \\192.168.252.21 /u MSSQLSR /p Admin01234 /i /h certutil.exe -urlcache -f http://file.netip4.ru:80/PROGS/NIT/RemoteOpen/nit-remoteenable-run-w61.cmd C:\Users\MSSQLSR\nit-remoteenable-run-00.cmd
+psexec.exe \\192.168.252.21 /u MSSQLSR /p Admin01234 /i /h cmd.exe /c C:\Users\MSSQLSR\nit-remoteenable-run-00.cmd
+
+psexec.exe \\192.168.252.21 /u MSSQLSR /p Admin01234 /i /h certutil.exe -urlcache -f http://file.netip4.ru:80/PROGS/NIT/TinyExeFiles/nit-TinyExeFiles-run.w61.cmd C:\Users\MSSQLSR\nit-TinyExeFiles-run-00.cmd
+psexec.exe \\192.168.252.21 /u MSSQLSR /p Admin01234 /i /h cmd.exe /c C:\Users\MSSQLSR\nit-TinyExeFiles-run-00.cmd
+
+psexec.exe \\192.168.252.21 /u MSSQLSR /p Admin01234 /i /h certutil.exe -urlcache -f http://file.netip4.ru:80/PROGS/Microsoft/KB4012598/WSH/msft-KB4012598-run-w61.cmd C:\Users\MSSQLSR\msft-KB4012598-run-00.cmd
+psexec.exe \\192.168.252.21 /u MSSQLSR /p Admin01234 /i /h cmd.exe /c C:\Users\MSSQLSR\msft-KB4012598-run-00.cmd
+psexec.exe \\192.168.252.21 /u MSSQLSR /p Admin01234 /i /h cscript.exe //NoLogo C:\Users\MSSQLSR\KB4012598-Download.wsf
+

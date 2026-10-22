@@ -1,0 +1,12 @@
+[safe]
+	directory = D:/yuden/Documents/GitHub/git-hidden/GitHub/scriptlib
+	directory = D:/yuden/Documents/GitHub/git-hidden/GitHub/scriptlib
+	directory = D:\\yuden\\Documents\\GitHub\\eurtp\\eurtp
+	directory = D:/yuden/Documents/GitHub/eurtp/eurtp
+[user]
+	name = Vadim Revich
+	email = vadimrevich21@gmail.com
+[credential]
+	helper = manager
+[credential "https://gitverse.ru"]
+	provider = generic

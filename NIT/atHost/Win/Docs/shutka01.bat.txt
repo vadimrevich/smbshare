@@ -1,0 +1,14 @@
+@echo off
+set /p answer="Вам не комильфо? (Y,N):"
+if %answer%==Y goto Lab1
+if %answer%==N goto Lab2
+goto Lab3
+:Lab1
+echo "Пить надо меньше!" && goto End
+:Lab2
+echo "Погоди, похмелье впереди!" && goto End
+:Lab3
+echo "Не можете уже сказать членораздельное?" && goto End
+:End
+echo "Пока пока!"
+exit /b 0

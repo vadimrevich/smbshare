@@ -1,0 +1,103 @@
+\\192.168.252.4\pi
+\\192.168.252.4\srv
+\\192.168.252.5\srv
+\\192.168.252.5\vagrant
+\\KEENETIC-9335\opkg
+\\KEENETIC-GIGA\opkg
+\\lin.netip4.ru\srv
+\\lin.netip4.ru\vagrant
+\\RASPBERRYPI4\srv
+\\raspberrypi4\vagrant
+\\RASPBERRYPI\pi
+\\RASPBERRYPI\srv
+\\SERVER-HOME\c-drive
+\\SERVER-HOME\d-drive
+\\SERVER-HOME\Users
+\\win.netip4.ru\c$
+\\win.netip4.ru\smbshare
+\\win.netip4.ru\TOWIN
+C:\.BIN
+C:\.BIN\KMS.Tools\Programs\KMSAuto Lite Portable v1.7.5\KMSAuto x64.exe
+C:\.BIN\KMS.Tools\Programs\KMSAuto Lite Portable v1.7.5\KMSAuto_Files
+C:\.BIN\KMS.Tools\Programs\Office 2013-2021 C2R Install v7.4.6\files
+C:\.BIN\KMS.Tools\Programs\Office 2013-2021 C2R Install v7.4.6\Office_2016-21_C2R_ISO_16.0.16827.20166_10.15.2023-14.25.04\files
+C:\.BIN\KMS.Tools\Programs\Office 2013-2021 C2R Install v7.4.6\Office_2016-21_C2R_ISO_16.0.16827.20166_10.15.2023-14.25.04\OInstall.exe
+C:\.BIN\KMS.Tools\Programs\Office 2013-2021 C2R Install v7.4.6\Office_2016-21_C2R_VL_ISO_16.0.14332.20582_10.15.2023-17.46.01\files
+C:\.BIN\KMS.Tools\Programs\Office 2013-2021 C2R Install v7.4.6\Office_2016-21_C2R_VL_ISO_16.0.14332.20582_10.15.2023-17.46.01\OInstall.exe
+C:\.BIN\KMS.Tools\Programs\Office 2013-2021 C2R Install v7.4.6\OInstall.exe
+C:\Elevation
+C:\inetpub
+C:\NIT.SYSUPDATE
+C:\OneDriveTemp
+C:\Program Files (x86)\7z SFX Toold
+C:\Program Files (x86)\7z SFX Tools
+C:\Program Files (x86)\AutoIt3
+C:\Program Files (x86)\PowerShell
+C:\Program Files (x86)\Remote Utilities - Host
+C:\Program Files (x86)\Remote Utilities - Server
+C:\Program Files (x86)\Remote Utilities - Viewer
+C:\Program Files (x86)\RMS Mini Internet-ID server
+C:\Program Files (x86)\WindowsPowerShell
+C:\Program Files (x86)\Yaldex Software\1st JavaScript Editor
+C:\Program Files\AutoIt3
+C:\Program Files\PowerShell
+C:\Program Files\RDP Wrapper
+C:\Program Files\RDPWrap
+C:\Program Files\SplitCam\10\splitcam.exe
+C:\Program Files\Vbsedit
+C:\Program Files\WindowsPowerShell
+C:\ProgramData\Acunetix
+C:\ProgramData\NIT
+C:\pub
+C:\pub1
+c:\pub1\Distrib\Zlovred
+C:\Python27.x64
+C:\Python27.x86
+C:\Python312
+C:\Python36.x64
+C:\Python38.x64
+C:\Python38.x86
+C:\tools
+C:\Users\MSSQLSR
+C:\Users\MSSQLSR\AppData\Roaming\TAPI64
+C:\Users\yuden\.gradle
+C:\Users\yuden\AppData\Local\JetBrains\DataGrip2020.1
+C:\Users\yuden\AppData\Local\Temp\dControl.exe
+C:\Users\yuden\AppData\Roaming\Client
+C:\Users\yuden\AppData\Roaming\JetBrains\DataGrip2020.1\projects\default
+C:\Users\yuden\AppData\Roaming\SubDir
+C:\Users\yuden\AppData\Roaming\TAPI64
+C:\Users\yuden\Documents\PowerShell
+C:\Users\yuden\Documents\WindowsPowerShell
+C:\Util
+C:\Windows
+C:\Windows\AAct_Tools
+C:\WINDOWS\AAct_Tools\AAct.exe
+C:\Windows\AAct_Tools\AAct_files
+C:\Windows\AAct_Tools\AAct_files\KMSSS.exe
+C:\Windows\AAct_Tools\AAct_x64.exe
+C:\Windows\KMS
+C:\Windows\KMSAutoS
+C:\Windows\KMSAutoS\KMSAuto x64.exe
+C:\Windows\KMSAutoS\KMSAuto_Files
+C:\Windows\System32\rserver30
+C:\Windows\System32\SECOPatcher.dll
+C:\Windows\System32\SppExtComObjHook.dll
+C:\Windows\System32\SppExtComObjPatcher.exe
+C:\Windows\System32\WindowsPowerShell
+C:\Windows\sysWOW64\rserver30
+C:\Windows\sysWOW64\WindowsPowerShell
+D:\$RECYCLE.BIN
+D:\.BIN
+D:\OneDriveTemp
+D:\yuden
+D:\yuden\Desktop
+D:\yuden\Documents
+D:\yuden\Download
+D:\yuden\OneDrive
+E:\
+E:\.BIN
+E:\OneDriveTemp
+e:\yuden
+x:\
+z:\

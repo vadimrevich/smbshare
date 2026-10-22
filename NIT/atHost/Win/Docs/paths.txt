@@ -1,0 +1,17 @@
+set PATH=%PATH%;%JAVA_HOME%\bin,%PHPDir%;%PY312X64%;%PY312X64%\Scripts;%LOCALAPPDATA%\Microsoft\WindowsApps;%ALLUSERSPROFILE%\Microsoft\Windows\WindowsApps;%ProgramFiles%\WindowsApps;%UTIL%;%AdminT%
+set JHDIR11=%ProgramFiles%\Java\jdk-11
+set JHDIR17=%ProgramFiles%\Java\jdk-17
+set JHDIR21=%ProgramFiles%\Java\jdk-21
+set JHDIR8=%ProgramFiles%\Java\jdk-1.8
+set UTIL=c:\Util
+set MEPATH=%ProgramFiles(x86)%\Multi-Edit 2008
+set PHPDir=C:\tools\php83
+set PY312X64=C:\Python312
+set PY36X64=C:\Python36.x64
+set PY37X64=C:\Python37.x64
+set PY38X64=C:\Python38.x64
+set PY38X86=C:\Python38.x86
+set AdminT=c:\Elevation
+set COMMANDER_PATH=%ProgramFiles%\totalcmd
+set ELEVATION=C:\Elevation
+set JAVA_HOME=%JHDIR8%
